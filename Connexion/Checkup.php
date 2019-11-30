@@ -4,11 +4,29 @@ $_SESSION['login'] = $_SESSION['login'] . " " . $_POST['inputEmail'] . " ";
 $_POST['inputEmail'] = $_POST['inputEmail'];
 $_SESSION['password'] = $_SESSION['password'];
 
-    $motpasse = $_POST['inputEmail'];
-    if ($_POST['inputEmail'] == 'userA@gmail.com' && $_POST['inputPassword'] == 'alibaba123') {
-        header("location:http://localhost/EcommercePhp/Admin/index.html");
-    } else {
-        header("location:log.php?message=faux");
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ecommerce";
+$connect = mysqli_connect($servername, $username, $password, $dbname);
+if (!$connect) {
+    echo "Echec de Connection : " . mysqli_connect_error();
+}
+    if(isset($_POST["inputEmail"])){
+        $try = $_POST['inputEmail'];
+        echo "c est $try";
+        //$idm = mysqli_real_escape_string($connect,$_POST["inputEmail"]);
+        $sql = "SELECT password FROM compte WHERE email='$try'";
+	$result = mysqli_query($connect, $sql);
+        if (mysqli_num_rows($result) >0) {
+            $row = mysqli_fetch_assoc($result);
+            echo $row['password'];
+        }
+        if($_POST['inputPassword'] == $row['password']){
+            header("location:http://localhost/EcommercePhp/Admin/index.html");      
+        } else{
+            header("location:log.php?message=faux");
+        }
     }
 /*
 try
