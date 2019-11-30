@@ -44,12 +44,58 @@
                 <div class="row">
                   <div class="col-md-9 col-lg-8 mx-auto">
                     <h3 class="login-heading mb-4">Créer un compte</h3>
-                    <form action="http://localhost/EcommercePhp/Connexion/Checkup.php" method="post">
+                    <form action="http://localhost/EcommercePhp/Connexion/Checkup.php?value=inscription" method="POST">
                        <div class="form-label-group">
                            <select name="type" id="type" class="form-control">
+                               <option value="null">Choisir...</option>
                                <option value="Manager">Manager</option>
                                <option value="Client">Client</option>
                            </select>
+                       </div>
+                      <div class="form-label-group">
+                        <input type="text" name="inputNom" id="inputNom" class="form-control" placeholder="Nom" required autofocus>
+                        <label for="inputNom">Nom</label>
+                      </div>
+                        
+                      <div class="form-label-group">
+                        <input type="text" name="inputPrenom" id="inputPrenom" class="form-control" placeholder="Prenom" required autofocus>
+                        <label for="inputPrenom">Prenom</label>
+                      </div>
+                        
+                      <div class="form-label-group">
+                        <input type="int" name="inputNumero" id="inputNumero" class="form-control" placeholder="Numero" required autofocus>
+                        <label for="inputNumero">Numero de téléphone</label>
+                      </div>
+                        
+                      <div class="form-label-group">
+                           <select name=sexe id="type" class="form-control">
+                               <option value="null">Choisir...</option>
+                               <option value="Masculin">Masculin</option>
+                               <option value="Feminin">Feminin</option>
+                           </select>
+                       </div>
+                        
+                        <div class="form-label-group">
+                           <select name=situation id="situation" class="form-control">
+                               <option value="null">Choisir...</option>
+                               <option value="value1">1</option>
+                               <option value="Value2">2</option>
+                           </select>
+                       </div>
+                        
+                       <div class="form-label-group">
+                        <input type="date" name="inputDate_naissance" id="inputDate_naissance" class="form-control" placeholder="Date_naissance" required autofocus>
+                        <label for="inputDate_naissance">Date de naissance</label>
+                      </div>
+                        
+                      <div class="form-label-group">
+                        <input type="text" name="inputZip" id="inputZip" class="form-control" placeholder="Zip Code" required autofocus>
+                        <label for="inputZip">ZP Code</label>
+                      </div>
+                        
+                       <div class="form-label-group">
+                         <input type="text" name="inputAdresse" id="inputAdresse" class="form-control" placeholder="Adresse" required autofocus>
+                        <label for="inputAdresse">Adresse</label>
                        </div>
                         
                       <div class="form-label-group">
@@ -63,8 +109,8 @@
                       </div>
                         
                       <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                        <label for="inputPassword">Répéter le mot de passe</label>
+                        <input type="password" id="inputR_Password" class="form-control" placeholder="Password" required>
+                        <label for="inputR_Password">Répéter le mot de passe</label>
                       </div>
 
 
@@ -75,6 +121,10 @@
                       <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Enregistrer</button>
                     
                     </form>
+                    <?php
+                        if(isset($_GET['message'])=='faux'){
+                            echo "<p style='color:red'>Login est incorrect</p>";}
+                        ?>
                   </div>
                 </div>
               </div>

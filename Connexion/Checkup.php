@@ -11,8 +11,8 @@ $dbname = "ecommerce";
 $connect = mysqli_connect($servername, $username, $password, $dbname);
 if (!$connect) {
     echo "Echec de Connection : " . mysqli_connect_error();
-}
-    if(isset($_POST["inputEmail"])){
+}/*
+    if(isset($_GET['value'])=='connexion' && isset($_POST["inputEmail"])){
         $try = $_POST['inputEmail'];
         echo "c est $try";
         //$idm = mysqli_real_escape_string($connect,$_POST["inputEmail"]);
@@ -27,26 +27,30 @@ if (!$connect) {
         } else{
             header("location:log.php?message=faux");
         }
-    }
-/*
-try
-{
-	$bdd = new PDO('mysql:host=localhost;dbname=ecommerce;charset=utf8', 'root', '');
-}
-catch(Exception $e)
-{
-        die('Erreur : '.$e->getMessage());
-}
-echo $_POST['inputEmail'];
+    }*/
+    echo 'try1';
+    if(isset($_GET['value'])=='inscription'){
+        echo 'try2';
+        if(isset($_POST["inputNom"]) && isset($_POST["inputPrenom"]) && isset($_POST["inputNumero"]) && isset($_POST["inputZip"]) && isset($_POST["inputAdresse"]) && isset($_POST["inputEmail"]) && isset($_POST["inputPassword"]) )
+{	echo 'lol';
+        $inputNom = mysqli_real_escape_string($connect,$_POST["inputNom"]);
+	$inputPrenom = mysqli_real_escape_string($connect, $_POST["inputPrenom"]);
+	$inputNumero = mysqli_real_escape_string($connect, $_POST["inputNumero"]);
+        $inputZip = mysqli_real_escape_string($connect, $_POST["inputZip"]);
+        $inputAdresse = mysqli_real_escape_string($connect, $_POST["inputAdresse"]);
+        $inputEmail = mysqli_real_escape_string($connect, $_POST["inputEmail"]);
+        $inputPassword = mysqli_real_escape_string($connect, $_POST["inputPassword"]);
+	$sql = "INSERT INTO compte (nom, prenom, numero, zip, adresse, email, password)
+	VALUES ('$inputNom', '$inputPrenom', '$inputNumero', '$inputZip', '$inputAdresse', '$inputEmail', '$inputPassword')";
+        echo'lol2';
+    //exécuter la requête d'insertion
+	if (mysqli_query($conn, $sql)) {
+    	echo "Succès";
+        header("location:log.php?message=faux");
+	} else {
+    	echo "Erreur d'insertion !! " ;
+        header("location:log.php?message=faux");
 
-// On prépare la requête  avec l'argument :pseudo
-$query = $bdd->prepare("SELECT COUNT(*) FROM compte WHERE Id=:pseudo");
-// On exécute la requête en remplaçant :pseudo par $pseudo
-$query->execute(array("pseudo" => $_POST['inputEmail']));
-// On récupère le nombre COUNT(*)
-$count = $query->fetchColumn();
-if ($count == 1){
-     echo "Le pseudo existe";
-}else{
-     echo "Le pseudo existe pas";
-}*/
+        }
+        }
+}

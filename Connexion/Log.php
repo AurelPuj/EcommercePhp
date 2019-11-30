@@ -54,7 +54,7 @@ else {
                 <div class="row">
                   <div class="col-md-9 col-lg-8 mx-auto">
                     <h3 class="login-heading mb-4">Connexion</h3>
-                    <form action="http://localhost/EcommercePhp/Connexion/Checkup.php" method="POST">
+                    <form action="http://localhost/EcommercePhp/Connexion/Checkup.php?value=connexion" method="POST">
                        <div class="form-label-group">
                            <select name="type" id="type" class="form-control">
                                <option value="Manager">Manager</option>
