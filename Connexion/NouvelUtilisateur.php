@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/Login.css" rel="stylesheet">
+        <link href="css/logIn.css" rel="stylesheet">
     </head>
     <body>
          <!-- Navigation -->
@@ -43,7 +43,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-9 col-lg-8 mx-auto">
-                    <h3 class="login-heading mb-4">Connexion</h3>
+                    <h3 class="login-heading mb-4">Créer un compte</h3>
                     <form action="http://localhost/EcommercePhp/Connexion/Checkup.php" method="post">
                        <div class="form-label-group">
                            <select name="type" id="type" class="form-control">
@@ -59,18 +59,21 @@
 
                       <div class="form-label-group">
                         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                        <label for="inputPassword">Mot de passe</label>
+                        <label for="inputPassword">Nouveau mot de passe</label>
                       </div>
+                        
+                      <div class="form-label-group">
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <label for="inputPassword">Répéter le mot de passe</label>
+                      </div>
+
 
                       <div class="custom-control custom-checkbox mb-3">
                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                         <label class="custom-control-label" for="customCheck1">Se souvenir de moi</label>
                       </div>
-                      <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Se connecter</button>
-                      <div class="text-center">
-                        <a class="small" href="#">Mot de passe oublié ?</a></div>
-                      <div class="text-center">  
-                        <a class="small" href="http://localhost/EcommercePhp/Connexion/NouvelUtilisateur.php">Créer un compte</a></div>
+                      <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Enregistrer</button>
+                    
                     </form>
                   </div>
                 </div>
@@ -87,4 +90,4 @@
         <!-- /.container -->
         </footer>
     </body>
-</html>
+</html>                                               
