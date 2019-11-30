@@ -32,11 +32,7 @@ else {
                   <a class="nav-link" href="http://localhost/EcommercePhp/Acceuil/index.html">Acceuil</a>
                 </li>
                 <li class="nav-item">
-<<<<<<< HEAD:Connexion/Log.html
                   <a class="nav-link" href="http://localhost/EcommercePhp/Connexion/Log.html">Connexion</a>
-=======
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Connexion/Log.php">Connexion</a>
->>>>>>> dbc7cd31902f9f103e62869e578ff954c2894f6c:Connexion/Log.php
 
                 </li>
                 <li class="nav-item">
