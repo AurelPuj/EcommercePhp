@@ -28,7 +28,7 @@ and open the template in the editor.
                   <a class="nav-link" href="http://localhost/EcommercePhp/Acceuil/index.html">Acceuil</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Connexion/Log.html">Connexion</a>
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Connexion/Log.php">Connexion</a>
 
                 </li>
                 <li class="nav-item">
