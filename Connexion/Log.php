@@ -99,7 +99,8 @@ else {
         <div class="container">
           <p class="m-0 text-center text-white">Téléphone : 01.68.85.20.03          Adresse : 6 rue de la mode, Paris</p>
         </div>
-        <!-- /.container -->
+        <!-- /.container allo -->
         </footer>
     </body>
 </html>
+
