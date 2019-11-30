@@ -1,5 +1,16 @@
 <?php
+session_start();
+$_SESSION['login'] = $_SESSION['login'] . " " . $_POST['inputEmail'] . " ";
+$_POST['inputEmail'] = $_POST['inputEmail'];
+$_SESSION['password'] = $_SESSION['password'];
 
+    $motpasse = $_POST['inputEmail'];
+    if ($_POST['inputEmail'] == 'userA@gmail.com' && $_POST['inputPassword'] == 'alibaba123') {
+        header("location:http://localhost/EcommercePhp/Admin/index.html");
+    } else {
+        header("location:log.php?message=faux");
+    }
+/*
 try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=ecommerce;charset=utf8', 'root', '');
@@ -20,4 +31,4 @@ if ($count == 1){
      echo "Le pseudo existe";
 }else{
      echo "Le pseudo existe pas";
-}
+}*/

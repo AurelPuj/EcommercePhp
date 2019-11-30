@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION['nb']))
+    $_SESSION['nb'] = $_SESSION['nb'] +1;
+else {
+    $_SESSION['nb']=0;
+    $_SESSION['login'] = "";
+    $_SESSION['password']="";   
+}
+?>
 
 <html>
     <head>
@@ -12,21 +22,21 @@
          <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <div class="container">
-            <a class="navbar-brand" href="http://localhost/Ecommerce/Acceuil/index.html">Hennes & Mauritz</a>
+            <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/Ecommerce/Acceuil/index.html">Acceuil</a>
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Acceuil/index.html">Acceuil</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/Ecommerce/Connexion/Log.html">Connexion</a>
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Connexion/Log.php">Connexion</a>
 
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/Ecommerce/Admin/index.html">Admin</a>
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/index.html">Admin</a>
 
                 </li>
               </ul>
@@ -44,7 +54,7 @@
                 <div class="row">
                   <div class="col-md-9 col-lg-8 mx-auto">
                     <h3 class="login-heading mb-4">Connexion</h3>
-                    <form action="http://localhost/EcommercePhp/Connexion/Checkup.php" method="post">
+                    <form action="http://localhost/EcommercePhp/Connexion/Checkup.php" method="POST">
                        <div class="form-label-group">
                            <select name="type" id="type" class="form-control">
                                <option value="Manager">Manager</option>
@@ -58,7 +68,7 @@
                       </div>
 
                       <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
                         <label for="inputPassword">Mot de passe</label>
                       </div>
 
@@ -70,6 +80,10 @@
                       <div class="text-center">
                         <a class="small" href="#">Mot de passe oublié ?</a></div>
                     </form>
+                        <?php
+                        if(isset($_GET['message'])=='faux'){
+                            echo "<p style='color:red'>Login est incorrect</p>";}
+                        ?>
                   </div>
                 </div>
               </div>
@@ -78,6 +92,7 @@
         </div>
       </div>
         
+         
         <footer class="py-5 bg-dark">
         <div class="container">
           <p class="m-0 text-center text-white">Téléphone : 01.68.85.20.03          Adresse : 6 rue de la mode, Paris</p>
