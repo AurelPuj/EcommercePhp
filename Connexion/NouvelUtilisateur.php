@@ -45,88 +45,95 @@
                   <div class="col-md-9 col-lg-8 mx-auto">
                     <h3 class="login-heading mb-4">Créer un compte</h3>
                     <form action="http://localhost/EcommercePhp/Connexion/Checkup.php?value=inscription" method="POST">
-                       <div class="form-label-group">
-                           <select name="type" id="type" class="form-control">
-                               <option value="null">Choisir...</option>
-                               <option value="Manager">Manager</option>
-                               <option value="Client">Client</option>
-                           </select>
-                       </div>
                       <div class="form-label-group">
                         <input type="text" name="inputNom" id="inputNom" class="form-control" placeholder="Nom" required autofocus>
-                        <label for="inputNom">Nom</label>
+                        <label for="inputNom">Nom (*)</label>
                       </div>
                         
                       <div class="form-label-group">
                         <input type="text" name="inputPrenom" id="inputPrenom" class="form-control" placeholder="Prenom" required autofocus>
-                        <label for="inputPrenom">Prenom</label>
+                        <label for="inputPrenom">Prenom (*)</label>
                       </div>
                         
                       <div class="form-label-group">
-                        <input type="int" name="inputNumero" id="inputNumero" class="form-control" placeholder="Numero" autofocus>
-                        <label for="inputNumero">Numero de téléphone</label>
+                        <input type="int" name="inputNumero" id="inputNumero" class="form-control" placeholder="Numero" required autofocus>
+                        <label for="inputNumero">Numero de téléphone (*)</label>
                       </div>
                         
                       <div class="form-label-group">
-                           <select name=sexe id="type" class="form-control">
-                               <option value="null">Choisir...</option>
+                           <select name=inputSexe id="inputSexe" class="form-control">
+                               <option value="">Choisir...</option>
                                <option value="Masculin">Masculin</option>
                                <option value="Feminin">Feminin</option>
+                               <option value="Autre">Autre</option>
                            </select>
                        </div>
                         
                         <div class="form-label-group">
-                           <select name=situation id="situation" class="form-control">
-                               <option value="null">Choisir...</option>
-                               <option value="value1">1</option>
-                               <option value="Value2">2</option>
+                           <select name=inputSituation id="inputSituation" class="form-control">
+                               <option value="">Choisir...</option>
+                               <option value="M">Marié</option>
+                               <option value="P">Pacsé</option>
+                               <option value="D">Divorcé</option>
+                               <option value="S">Séparé</option>
+                               <option value="C">Célibataire</option>
+                               <option value="V">Veuf</option>
                            </select>
                        </div>
                         
                        <div class="form-label-group">
-                        <input type="date" name="inputDate_naissance" id="inputDate_naissance" class="form-control" placeholder="Date_naissance" required autofocus>
-                        <label for="inputDate_naissance">Date de naissance</label>
+                        <input type="date" name="inputDate_naissance" id="inputDate_naissance" class="form-control" placeholder="Date_naissance" autofocus>
+                        <label for="inputDate_naissance">Date de naissance </label>
                       </div>
                         
                       <div class="form-label-group">
                         <input type="text" name="inputZip" id="inputZip" class="form-control" placeholder="Zip Code" required autofocus>
-                        <label for="inputZip">ZiP Code</label>
+                        <label for="inputZip">ZiP Code (*)</label>
                       </div>
                         
                        <div class="form-label-group">
                          <input type="text" name="inputAdresse" id="inputAdresse" class="form-control" placeholder="Adresse" required autofocus>
-                        <label for="inputAdresse">Adresse</label>
+                        <label for="inputAdresse">Adresse (*)</label>
                        </div>
                         
                       <div class="form-label-group">
                         <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                        <label for="inputEmail">Email</label>
+                        <label for="inputEmail">Email (*)</label>
                       </div>
 
                       <div class="form-label-group">
                         <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
-                        <label for="inputPassword">Nouveau mot de passe</label>
+                        <label for="inputPassword">Nouveau mot de passe (*)</label>
                       </div>
                         
                       <div class="form-label-group">
                         <input type="password" name="inputR_Password" id="inputR_Password" class="form-control" placeholder="R_Password" required>
-                        <label for="inputR_Password">Répéter le mot de passe</label>
+                        <label for="inputR_Password">Répéter le mot de passe (*)</label>
                       </div>
-
-
-                      <div class="custom-control custom-checkbox mb-3">
+           <!---          <div class="custom-control custom-checkbox mb-3">
                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                         <label class="custom-control-label" for="customCheck1">Se souvenir de moi</label>
-                      </div>
+                      </div>--->
                       <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Enregistrer</button>
                     
                     </form>
                     <?php
+                    echo "* champ obligatoire";
                     if(isset($_GET['message'])){
                         if($_GET['message']=='faux'){
                             echo "<p style='color:red'>Erreur</p>";}
                         if($_GET['message']== 'vrai'){
                             echo "<p style='color:green'>Inscription validée</p>";}
+                        if($_GET['message']== 'NP_invalide'){
+                            echo "<p style='color:red'>Entrez un nom et prenom valide ! </p>";}
+                        if($_GET['message']== 'Num_invalide'){
+                            echo "<p style='color:red'>Entrez un numero valide ! </p>";}
+                        if($_GET['message']== 'Zip_invalide'){
+                            echo "<p style='color:red'>Entrez un ZIP valide ! </p>";}
+                        if($_GET['message']== 'Pass_invalide'){
+                            echo "<p style='color:red'>Entrez un password valide ! </p>";}
+                        if($_GET['message']== 'Match_invalide'){
+                            echo "<p style='color:red'>Erreur confirmation password ! </p>";}
                     }
                         ?>
                   </div>
