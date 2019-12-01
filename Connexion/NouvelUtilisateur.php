@@ -63,7 +63,7 @@
                       </div>
                         
                       <div class="form-label-group">
-                        <input type="int" name="inputNumero" id="inputNumero" class="form-control" placeholder="Numero" required autofocus>
+                        <input type="int" name="inputNumero" id="inputNumero" class="form-control" placeholder="Numero" autofocus>
                         <label for="inputNumero">Numero de téléphone</label>
                       </div>
                         
@@ -90,7 +90,7 @@
                         
                       <div class="form-label-group">
                         <input type="text" name="inputZip" id="inputZip" class="form-control" placeholder="Zip Code" required autofocus>
-                        <label for="inputZip">ZP Code</label>
+                        <label for="inputZip">ZiP Code</label>
                       </div>
                         
                        <div class="form-label-group">
@@ -104,12 +104,12 @@
                       </div>
 
                       <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
                         <label for="inputPassword">Nouveau mot de passe</label>
                       </div>
                         
                       <div class="form-label-group">
-                        <input type="password" id="inputR_Password" class="form-control" placeholder="Password" required>
+                        <input type="password" name="inputR_Password" id="inputR_Password" class="form-control" placeholder="R_Password" required>
                         <label for="inputR_Password">Répéter le mot de passe</label>
                       </div>
 
@@ -122,8 +122,12 @@
                     
                     </form>
                     <?php
-                        if(isset($_GET['message'])=='faux'){
-                            echo "<p style='color:red'>Login est incorrect</p>";}
+                    if(isset($_GET['message'])){
+                        if($_GET['message']=='faux'){
+                            echo "<p style='color:red'>Erreur</p>";}
+                        if($_GET['message']== 'vrai'){
+                            echo "<p style='color:green'>Inscription validée</p>";}
+                    }
                         ?>
                   </div>
                 </div>

@@ -83,8 +83,11 @@ else {
                         <a class="small" href="http://localhost/EcommercePhp/Connexion/NouvelUtilisateur.php">Créer un compte</a></div>
                     </form>
                         <?php
-                        if(isset($_GET['message'])=='faux'){
-                            echo "<p style='color:red'>Login est incorrect</p>";}
+                        if(isset($_GET['message'])){
+                            if($_GET['message']=='faux'){
+                            echo "<p style='color:red'>Login est incorrect</p>";
+                            }
+                            }
                         ?>
                   </div>
                 </div>
