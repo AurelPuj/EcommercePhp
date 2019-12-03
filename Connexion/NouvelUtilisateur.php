@@ -134,6 +134,8 @@
                             echo "<p style='color:red'>Entrez un password valide ! </p>";}
                         if($_GET['message']== 'Match_invalide'){
                             echo "<p style='color:red'>Erreur confirmation password ! </p>";}
+                        if($_GET['message']== 'User_existant'){
+                            echo "<p style='color:red'>Utilisateur deja existant </p>";}
                     }
                         ?>
                   </div>

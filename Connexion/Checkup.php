@@ -13,10 +13,9 @@ if (!$connect) {
     echo "Echec de Connection : " . mysqli_connect_error();
 }
     if($_GET['value']=='connexion' && isset($_POST["inputEmail"])){
-        $try = $_POST['inputEmail'];
-        echo "c est $try";
+        $input = $_POST['inputEmail'];
         //$idm = mysqli_real_escape_string($connect,$_POST["inputEmail"]);
-        $sql = "SELECT password FROM compte WHERE email='$try'";
+        $sql = "SELECT password FROM compte WHERE email='$input'";
 	$result = mysqli_query($connect, $sql);
         if (mysqli_num_rows($result) >0) {
             $row = mysqli_fetch_assoc($result);
@@ -56,6 +55,16 @@ if (!$connect) {
         }
         if($inputR_Password != $inputPassword){
             header("location:nouvelUtilisateur.php?message=Match_invalide");
+        }
+        
+        $sql = "SELECT email FROM compte WHERE email='$inputEmail'";
+	$result = mysqli_query($connect, $sql);
+        if (mysqli_num_rows($result) >0) {
+            $row = mysqli_fetch_assoc($result);
+            echo $row['email'];
+        }
+        if($_POST['inputEmail'] == $row['email']){
+            header("location:nouvelUtilisateur.php?message=User_existant");      
         }
         
 	$sql = "INSERT INTO compte (type, nom, prenom, numero, zip, adresse, password, email, sexe, situation, date_naissance)
