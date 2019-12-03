@@ -58,8 +58,36 @@
 
                             <div class="col-md-4">
                               <h3 class="my-3">Description</h3>
-                                <input name="Description" id="Description" class="form-control" required autofocus>
+                              <input name="Description" id="Description" class="form-control" required autofocus>
+
+                                <div class="form-label-group">
+                                    <label for="catégorie">Catégorie</label>
+                                    <select name="Catégorie" id="catégorie" class="form-control">
+                                        <option value="haut">Haut</option>
+                                        <option value="bas">Bas</option>
+                                        <option value="chaussures">Chaussures</option>
+                                    </select>
+                                    
+                                </div>
+
+                                <div class="form-label-group">
+                                    <label for="marque">Marque</label>
+                                    <select name="Marque" id="marque" class="form-control">
+                                        <option value="H&M">H&M</option>
+                                        <option value="H&MDesign">H&MDesign</option>
+                                        <option value="H&MEnfant">H&MEnfant</option>
+                                    </select>
+                                </div>
+                                <label for="Quantité">Quantité</label>
+                                <input name="Quantité" id="Quantité" class="form-control" required autofocus>
+                                <label for="Prix">Prix</label>
+                                <input name="Prix" id="Prix" class="form-control" required autofocus>
+                                <label for="TVA">TVA</label>
+                                <input name="TVA" id="TVA" class="form-control" required autofocus>
+                                
                             </div>
+                              
+                            
 
                           </div>
                           <!-- /.row -->
