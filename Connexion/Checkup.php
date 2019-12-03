@@ -71,17 +71,16 @@ if (!$connect) {
         }
         if($_POST['inputEmail'] == $row['email']){
             header("location:nouvelUtilisateur.php?message=User_existant");      
-        }
-        
-	$sql = "INSERT INTO compte (type, nom, prenom, numero, zip, adresse, password, email, sexe, situation, date_naissance)
+        } else {
+            	$sql = "INSERT INTO compte (type, nom, prenom, numero, zip, adresse, password, email, sexe, situation, date_naissance)
 	VALUES ('Client', '$inputNom', '$inputPrenom', '$inputNumero', '$inputZip', '$inputAdresse', '$inputPassword', '$inputEmail', '$inputSexe', '$inputSituation' , '$inputDate_naissance')";
-
-        //exécuter la requête d'insertion
+                        //exécuter la requête d'insertion
 	if (mysqli_query($connect, $sql)) {
             header("location:nouvelUtilisateur.php?message=vrai");
 	} else {
             header("location:nouvelUtilisateur.php?message=faux");
 
+        }
         }
         }
         }
