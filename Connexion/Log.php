@@ -56,7 +56,7 @@ else {
                     <h3 class="login-heading mb-4">Connexion</h3>
                     <form action="http://localhost/EcommercePhp/Connexion/Checkup.php?value=connexion" method="POST">
                        <div class="form-label-group">
-                           <select name="type" id="type" class="form-control">
+                           <select name="inputType" id="inputType" class="form-control">
                                <option value="Manager">Manager</option>
                                <option value="Client">Client</option>
                            </select>
@@ -87,6 +87,8 @@ else {
                             if($_GET['message']=='faux'){
                             echo "<p style='color:red'>Login est incorrect</p>";
                             }
+                            if($_GET['message']== 'error_password'){
+                            echo "<p style='color:red'>Mot de passe incorrect </p>";}
                             }
                         ?>
                   </div>

@@ -13,18 +13,24 @@ if (!$connect) {
     echo "Echec de Connection : " . mysqli_connect_error();
 }
     if($_GET['value']=='connexion' && isset($_POST["inputEmail"])){
-        $input = $_POST['inputEmail'];
-        //$idm = mysqli_real_escape_string($connect,$_POST["inputEmail"]);
-        $sql = "SELECT password FROM compte WHERE email='$input'";
+        $inputEmail = $_POST['inputEmail'];
+        $inputType = $_POST['inputType'];
+        $sql = "SELECT password, type FROM compte WHERE email='$inputEmail'";
 	$result = mysqli_query($connect, $sql);
         if (mysqli_num_rows($result) >0) {
             $row = mysqli_fetch_assoc($result);
-            echo $row['password'];
         }
-        if($_POST['inputPassword'] == $row['password']){
-            header("location:http://localhost/EcommercePhp/Admin/index.html");      
-        } else{
+        if($_POST['inputPassword'] == $row['password'])
+        {
+            if($_POST['inputType'] == $row['type'] && $row['type'] == 'Client'){
+                header("location:http://localhost/EcommercePhp/Acceuil/index.html");
+            }elseif($_POST['inputType'] == $row['type'] && $row['type'] == 'Manager'){
+                header("location:http://localhost/EcommercePhp/Admin/index.html");
+            }else {
             header("location:log.php?message=faux");
+            }
+        }else {
+            header("location:log.php?message=error_password");
         }
     }
     if($_GET['value']=='inscription'){

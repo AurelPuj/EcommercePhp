@@ -22,7 +22,7 @@
                   <a class="nav-link" href="http://localhost/EcommercePhp/Acceuil/index.html">Acceuil</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Connexion/Log.html">Connexion</a>
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Connexion/Log.php">Connexion</a>
 
                 </li>
                 <li class="nav-item">
@@ -121,7 +121,7 @@
                     echo "* champ obligatoire";
                     if(isset($_GET['message'])){
                         if($_GET['message']=='faux'){
-                            echo "<p style='color:red'>Erreur</p>";}
+                            echo "<p style='color:red'>Erreur de connexion</p>";}
                         if($_GET['message']== 'vrai'){
                             echo "<p style='color:green'>Inscription validée</p>";}
                         if($_GET['message']== 'NP_invalide'){
