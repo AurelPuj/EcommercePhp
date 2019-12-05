@@ -48,9 +48,9 @@
                                     <label for="catégorie">Catégorie</label>
                                     <select name="Catégorie" id="catégorie" class="form-control">
                                         <option value="nothing"></option>
-                                        <option value="haut">Haut</option>
-                                        <option value="bas">Bas</option>
-                                        <option value="chaussures">Chaussures</option>
+                                        <option value="Haut">Haut</option>
+                                        <option value="Bas">Bas</option>
+                                        <option value="Chaussures">Chaussures</option>
                                     </select>
                                     
                                 </div>
