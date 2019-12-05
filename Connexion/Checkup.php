@@ -23,7 +23,7 @@ if (!$connect) {
         if($_POST['inputPassword'] == $row['password'])
         {
             if($_POST['inputType'] == $row['type'] && $row['type'] == 'Client'){
-                header("location:http://localhost/EcommercePhp/Acceuil/index.html");
+                header("location:http://localhost/EcommercePhp/CLient/index.php");
             }elseif($_POST['inputType'] == $row['type'] && $row['type'] == 'Manager'){
                 header("location:http://localhost/EcommercePhp/Admin/index.html");
             }else {

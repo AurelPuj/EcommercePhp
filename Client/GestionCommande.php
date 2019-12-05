@@ -5,7 +5,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/Ajouter.css" rel="stylesheet">
         
         <link rel="icon" type="image/ico" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1200px-H%26M-Logo.svg.png" />
         <title>H&M</title>
@@ -16,7 +15,7 @@
          <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <div class="container">
-            <a cla  ss="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
+            <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,31 +37,17 @@
           </div>
         </nav>
         
-         <form action="http://localhost/EcommercePhp/Admin/recup.php" method="post">
+         <form action="http://localhost/EcommercePhp/Client/ListeClient.php" method="post">
                 <section class="py-5"> 
                         <!-- Page Content -->
                         <div class="container">
 
-                          <!-- Portfolio Item Heading -->
-                          <h1 class="my-4">
-                                <input name="NomProduit" id="NomProduit" class="form-control" placeholder="Nom du produit" required autofocus>
-                          </h1>
-
                           <!-- Portfolio Item Row -->
-                          <div class="row">
-
-                            <div class="col-md-8">
-                              <img class="img-fluid" src="https://www.humanprogresscenter.com/wp-content/uploads/2016/05/fond-gris.jpg" alt="">
-                              <input name="Url" id="Url" class="form-control" placeholder="Url" required autofocus>
-                            </div>
-
-                            <div class="col-md-4">
-                              <h3 class="my-3">Description</h3>
-                              <input name="Description" id="Description" class="form-control" required autofocus>
-
+                            <div class="my-4">
                                 <div class="form-label-group">
                                     <label for="catégorie">Catégorie</label>
                                     <select name="Catégorie" id="catégorie" class="form-control">
+                                        <option value="nothing"></option>
                                         <option value="haut">Haut</option>
                                         <option value="bas">Bas</option>
                                         <option value="chaussures">Chaussures</option>
@@ -73,31 +58,28 @@
                                 <div class="form-label-group">
                                     <label for="marque">Marque</label>
                                     <select name="Marque" id="marque" class="form-control">
+                                        <option value="nothing"></option>
                                         <option value="H&M">H&M</option>
                                         <option value="H&MDesign">H&MDesign</option>
                                         <option value="H&MEnfant">H&MEnfant</option>
                                     </select>
                                 </div>
-                                <label for="Quantité">Quantité</label>
-                                <input name="Quantité" id="Quantité" class="form-control" required autofocus>
-                                <label for="Prix">Prix</label>
-                                <input name="Prix" id="Prix" class="form-control" required autofocus>
-                                <label for="TVA">TVA</label>
-                                <input name="TVA" id="TVA" class="form-control" required autofocus>
+                                
+                            <!-- Portfolio Item Heading -->
+                            <h1 class="my-4">
+                                <input type="text" name="Prixmin" id="Prixmin" class="form-control" placeholder="Prixmin"autofocus>
+                            </h1>
+                            
+                            <h1 class="my-4">
+                                <input type="text" name="Prixmax" id="Prixmax" class="form-control" placeholder="Prixmax"autofocus>
+                            </h1>
                                 
                             </div>
-                              
-                            
-
-                          </div>
-                          <!-- /.row -->
-
-                          <!-- Related Projects Row -->
-                          <input type="submit" value="Envoyer" />
-
-                        </div>
-                        <!-- /.container -->
+                            <div class="my-4">
+                                <input class="form-control" type="submit" value="Rechercher" />
+                            </div>  
                 </section>
+                
          </form>
              
         <footer class="py-5 bg-dark">

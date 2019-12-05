@@ -57,7 +57,7 @@ and open the template in the editor.
                                   die('Erreur : '.$e->getMessage());
                           }
 
-                          $articles= $bdd->query("SELECT Nom,Image,Description  FROM article");
+                          $articles= $bdd->query("SELECT Nom,Image,Description FROM article");
                           while ($donnee = $articles->fetch()){?>
                                 <div class="col-lg-4 col-sm-6 mb-4">
                                   <div class="card h-100">
