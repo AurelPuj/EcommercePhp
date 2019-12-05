@@ -57,20 +57,26 @@ and open the template in the editor.
                                   die('Erreur : '.$e->getMessage());
                           }
 
-                          $articles= $bdd->query("SELECT Nom,Image,Description  FROM article");
-                          while ($donnee = $articles->fetch()){?>
+                          $articles= $bdd->query("SELECT Ref,Nom,Image,Description  FROM article");?>
+                        <form action="SupprimerBD.php" method="POST">
+                          <?php while ($donnee = $articles->fetch()){?>
                                 <div class="col-lg-4 col-sm-6 mb-4">
                                   <div class="card h-100">
                                     <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
                                     <div class="card-body">
                                       <h4 class="card-title">
-                                        <p><input type="checkbox"><?php echo"\t", $donnee['Nom'];?></p>
+                                          <input type="checkbox" name="checkbox[]" value='<?php echo$donnee['Ref']."_";?>'>
+                                          <a href="#"><?php echo $donnee['Nom'];?></a>
+
                                       </h4>
                                       <p class="card-text"><?php echo $donnee['Description'];?></p>
                                     </div>
                                   </div>
                                 </div>
                           <?php }?>
+                            
+                            <input type="submit">
+                        </form>
                     
                 </div>
         </section>

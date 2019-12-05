@@ -5,8 +5,12 @@
         <group>
             <file>file:/C:/Users/Aurelien/Documents/Github/EcommercePhp/Connexion/Checkup.php</file>
             <file>file:/C:/Users/Aurelien/Documents/Github/EcommercePhp/Connexion/NouvelUtilisateur.php</file>
-            <file>file:/C:/Users/Aurelien/Documents/Github/EcommercePhp/Connexion/Log.php</file>
-            <file>file:/C:/Users/Aurelien/Documents/Github/EcommercePhp/Connexion/css/Login.css</file>
+            <file>file:/C:/Users/Aurelien/Documents/Github/EcommercePhp/Admin/SupprimerBD.php</file>
+            <file>file:/C:/Users/Aurelien/Documents/Github/EcommercePhp/Admin/Ajouter.php</file>
+            <file>file:/C:/Users/Aurelien/Documents/Github/EcommercePhp/Admin/index.html</file>
+            <file>file:/C:/Users/Aurelien/Documents/Github/EcommercePhp/Admin/Liste.php</file>
+            <file>file:/C:/Users/Aurelien/Documents/Github/EcommercePhp/Admin/Supprimer.php</file>
+            <file>file:/C:/Users/Aurelien/Documents/Github/EcommercePhp/Admin/recup.php</file>
         </group>
     </open-files>
 </project-private>

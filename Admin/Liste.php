@@ -32,7 +32,7 @@ and open the template in the editor.
 
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/index.php">Admin</a>
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/index.html">Admin</a>
 
                 </li>
               </ul>
