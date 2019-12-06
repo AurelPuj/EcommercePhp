@@ -37,7 +37,7 @@
           </div>
         </nav>
         
-         <form action="http://localhost/EcommercePhp/Client/ListeClient.php" method="post">
+        <form action="http://localhost/EcommercePhp/Client/ListeClient.php" method="post">
                 <section class="py-5"> 
                         <!-- Page Content -->
                         <div class="container">
