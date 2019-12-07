@@ -1,3 +1,9 @@
+<?php
+session_start();
+$_SESSION['type'] = $_SESSION['type'];
+$_SESSION['email']= $_SESSION['email'];
+$_SESSION['timeout_idle'] = time() + 2*24*60;
+?>
 
 <html>
     <head>
