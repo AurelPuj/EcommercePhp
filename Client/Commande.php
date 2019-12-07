@@ -16,28 +16,46 @@
             }
             
             if(isset ($_POST['QuantitéAchat'])){
-            $sql = 'INSERT INTO commande VALUES("0","'.$_POST['Nom'].'","'.$_POST['Image'].'","'.$_POST['Prix'].'","'.$_POST['QuantitéAchat'].'","'.'0'.'","'.$_SESSION['email'].'")';
-            
-            mysqli_query($connect, $sql) or die ('Erreur SQL !'.$sql.'<br />'. mysqli_error($connect));
+                $sql = 'INSERT INTO commande VALUES("0","'.$_POST['Nom'].'","'.$_POST['Image'].'","'.$_POST['Prix'].'","'.$_POST['QuantitéAchat'].'","'.'0'.'","'.$_SESSION['email'].'")';
+                mysqli_query($connect, $sql) or die ('Erreur SQL !'.$sql.'<br />'. mysqli_error($connect));
             }
             
             if (isset($_POST['checkbox']) && is_array($_POST['checkbox'])){
                 foreach ($_POST['checkbox'] as $checkbox){
-                $tabcheckbox= explode("_",$checkbox);
-                foreach ($tabcheckbox as $value){
-                    $req="DELETE from commande WHERE NumCommande='$value'";
-                    $erase= mysqli_query($connect, $req);
-                    if($erase==FALSE){
-                        echo "c la esse";
-                    }
-                }   
+                    $tabcheckbox= explode("_",$checkbox);
+                    foreach ($tabcheckbox as $value){
+                        $req="DELETE from commande WHERE NumCommande='$value'";
+                        $erase= mysqli_query($connect, $req);
+                        if($erase==FALSE){
+                            echo "c la esse";
+                        }
+                    }   
+            }   
             }
-            }else{
-                echo 'prout';
-            }
-            if ($_POST['boutton']="Payer"){
-                echo "caca";
-            }
+            if (isset($_POST['boutton']) && $_POST['boutton']== 'Payer'){
+                if (isset($_POST['Nom']) && is_array($_POST['Nom'])){
+                foreach ($_POST['Nom'] as $Panier){
+                    $tabPanier= explode("_",$Panier);
+                    foreach ($tabPanier as $value){
+                        $req="SELECT Quantité FROM article WHERE Nom='$value'";
+                        $recup=mysqli_query($connect, $req) or die ('Erreur SQL !'.$req.'<br />'. mysqli_error($connect));;;
+                        $req="SELECT QuantitéAchat FROM commande WHERE Nom='.$value.'";
+                        $recupachat=mysqli_query($connect, $req) or die ('Erreur SQL !'.$req.'<br />'. mysqli_error($connect));;;
+                        
+                        if (mysqli_num_rows($recup) >0 && mysqli_num_rows($recupachat) >0) {
+                            $row = mysqli_fetch_assoc($recup);
+                            $row1 = mysqli_fetch_assoc($recupachat);
+
+                        }
+                        echo mysqli_num_rows($recup),$value;
+                        $achat=$row['Quantité']-$row1['QuantitéAchat'];
+                        $req="UDAPTE article SET Quantité='.$achat.' WHERE Nom='.$value.'";
+                        $udapte= mysqli_query($connect, $req);
+                        $req="DELETE from commande WHERE Nom='$value'";
+                        $erase= mysqli_query($connect, $req);
+                    }   
+            }}}   
+            
 ?>
 
 <html>
@@ -107,6 +125,7 @@
                                             </h4>
                                             <p class="card-text">Prix : <?php echo $donnee['PrixAchat'];?></p>
                                             <p class="card-text">Quantité : <?php echo $donnee['QuantitéAchat'];?></p>
+                                            <input type="hidden" name="Nom[]" Value='<?php echo $donnee['Nom']."_";?>'>
                                           </div>
                                         </div>
                                       </div>
@@ -133,4 +152,3 @@
         <!-- /.container -->
     </body>
 </html>
-
