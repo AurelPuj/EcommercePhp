@@ -3,6 +3,10 @@ session_start();
 $_SESSION['type'] = $_SESSION['type'];
 $_SESSION['email']= $_SESSION['email'];
 $_SESSION['timeout_idle'] = time() + 2*24*60;
+
+if ($_GET['message']=='vide'){
+    echo '<script type="text/javascript">window.alert("Le Panier est vide !");</script>';
+}
 ?>
 //
 <html>
@@ -110,10 +114,14 @@ $_SESSION['timeout_idle'] = time() + 2*24*60;
                                                                   <a href="#"><?php echo $donnee['Nom'];?></a>
                                                                 </h4>
                                                                 <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                                                <p class="card-text">Catégorie :<?php echo $donnee['Catégorie'];?></p>
+                                                                <p class="card-text" name="fesse">Catégorie :<?php echo $donnee['Catégorie'];?></p>
                                                                 <p class="card-text">Marque :<?php echo $donnee['Marque'];?></p>
                                                                 <p class="card-text">Prix :<?php echo $donnee['Prix'];?></p>
-                                                              <input type="text" name="QuantitéAchat">
+                                                                <input type="text" name="QuantitéAchat">
+                                                                <input type="hidden" name="Nom" value="<?php echo $donnee['Nom'];?>">
+                                                                <input type="hidden" name="Image" value="<?php echo $donnee['Image'];?>">
+                                                                <input type="hidden" name="Prix" value="<?php echo $donnee['Prix'];?>">
+                                                                <input type="hidden" name="Catégorie" value="<?php echo $donnee['Catégorie'];?>">
                                                                 <label for="QuantitéAchat">Quantité</label>
                                                             </div>
                                                         </div>
