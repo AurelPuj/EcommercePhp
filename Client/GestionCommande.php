@@ -80,16 +80,16 @@
                             </div>
                             <div class="row">
                                 <?php
-                                      try
-                                      {
-                                              $bdd = new PDO('mysql:host=localhost;dbname=ecommerce;charset=utf8', 'root', '');
-                                      }
-                                      catch(Exception $e)
-                                      {
-                                              die('Erreur : '.$e->getMessage());
-                                      }
+                                        try
+                                        {
+                                                $bdd = new PDO('mysql:host=localhost;dbname=ecommerce;charset=utf8', 'root', '');
+                                        }
+                                        catch(Exception $e)
+                                        {
+                                                die('Erreur : '.$e->getMessage());
+                                        }
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article");
 
-                                      $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article");
                                         while ($donnee = $articles->fetch()){
                                                 if ($donnee['Quantité']!=0){    
                                                 ?>
