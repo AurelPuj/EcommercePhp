@@ -81,12 +81,12 @@ if (!$connect) {
                              </div>
                              
                              <div class="form-label-group">
-                                <label for="inputNewPassword">Ancien Mot de passe</label>
+                                <label for="inputNewPassword">Nouveau Mot de passe</label>
                                 <input type="password" name="inputNewPassword" id="inputNewPassword" class="form-control" placeholder="Nouveau Mot de passe" required autofocus>
                              </div>
                              
                              <div class="form-label-group">
-                                <label for="inputR_NewPassword">Ancien Mot de passe</label>
+                                <label for="inputR_NewPassword">Nouveau Mot de passe</label>
                                 <input type="password" name="inputR_NewPassword" id="inputR_NewPassword" class="form-control" placeholder="Nouveau Mot de passe" required autofocus>
                              </div>
                              
