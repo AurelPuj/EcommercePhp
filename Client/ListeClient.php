@@ -37,13 +37,14 @@
           </div>
         </nav>
         
-        <form action="http://localhost/EcommercePhp/Client/ListeClient.php" method="post">
+        
                 <section class="py-5"> 
                         <!-- Page Content -->
                         <div class="container">
-
-                          <!-- Portfolio Item Row -->
+                            
+                            <!-- Portfolio Item Row -->
                             <div class="my-4">
+                                <form action="http://localhost/EcommercePhp/Client/ListeClient.php" method="post">
                                 <div class="form-label-group">
                                     <label for="catégorie">Catégorie</label>
                                     <select name="Catégorie" id="catégorie" class="form-control">
@@ -64,7 +65,8 @@
                                         <option value="H&MEnfant">H&MEnfant</option>
                                     </select>
                                 </div>
-                                
+                                </form>
+                           
                             <!-- Portfolio Item Heading -->
                             <h1 class="my-4">
                                 <input type="text" name="Prixmin" id="Prixmin" class="form-control" placeholder="Prixmin"autofocus>
@@ -78,6 +80,7 @@
                             <div class="my-4">
                                 <input class="form-control" type="submit" value="Rechercher" />
                             </div>
+                            
                             <div class="row">
                                 <?php
                                         try
@@ -155,7 +158,7 @@
                             </div>
                 </section>
                 
-         </form>
+        
              
         <footer class="py-5 bg-dark">
             <div class="container">

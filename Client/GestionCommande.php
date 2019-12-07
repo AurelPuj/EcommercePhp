@@ -37,13 +37,13 @@
           </div>
         </nav>
         
-        <form action="http://localhost/EcommercePhp/Client/ListeClient.php" method="post">
                 <section class="py-5"> 
                         <!-- Page Content -->
                         <div class="container">
 
                           <!-- Portfolio Item Row -->
                             <div class="my-4">
+                                <form action="http://localhost/EcommercePhp/Client/ListeClient.php" method="post">
                                 <div class="form-label-group">
                                     <label for="catégorie">Catégorie</label>
                                     <select name="Catégorie" id="catégorie" class="form-control">
@@ -64,6 +64,7 @@
                                         <option value="H&MEnfant">H&MEnfant</option>
                                     </select>
                                 </div>
+                                </form>
                                 
                             <!-- Portfolio Item Heading -->
                             <h1 class="my-4">
@@ -94,21 +95,24 @@
                                                 if ($donnee['Quantité']!=0){    
                                                 ?>
                                                       <div class="col-lg-4 col-sm-6 mb-4">
+                                                        <form action="http://localhost/EcommercePhp/Client/Commande.php" method="post">
                                                         <div class="card h-100">
                                                           <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                                          <div class="card-body">
-                                                            <h4 class="card-title">
-                                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                                            </h4>
-                                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                                            <p class="card-text">Catégorie :<?php echo $donnee['Catégorie'];?></p>
-                                                            <p class="card-text">Marque :<?php echo $donnee['Marque'];?></p>
-                                                            <p class="card-text">Prix :<?php echo $donnee['Prix'];?></p>
-                                                            <input type="text" name="QuantitéAchat">
-                                                            <label for="QuantitéAchat">Quantité</label>
-                                                          </div>
-                                                          <input class="form-control" type="submit" value="Acheter" />
+                                                          
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">
+                                                                  <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                                </h4>
+                                                                <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                                <p class="card-text">Catégorie :<?php echo $donnee['Catégorie'];?></p>
+                                                                <p class="card-text">Marque :<?php echo $donnee['Marque'];?></p>
+                                                                <p class="card-text">Prix :<?php echo $donnee['Prix'];?></p>
+                                                              <input type="text" name="QuantitéAchat">
+                                                                <label for="QuantitéAchat">Quantité</label>
+                                                            </div>
                                                         </div>
+                                                        <input class="form-control" type="submit" value="Acheter" />
+                                                       </form>
                                                       </div>
                                                 <?php }
                                         }?>
@@ -116,7 +120,7 @@
                             </div>
                 </section>
                 
-         </form>
+
              
         <footer class="py-5 bg-dark">
             <div class="container">
