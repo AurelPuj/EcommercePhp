@@ -1,8 +1,11 @@
 <?php
 session_start();
-$_SESSION['login'] = $_SESSION['login'] . " " . $_POST['inputEmail'] . " ";
-$_POST['inputEmail'] = $_POST['inputEmail'];
-$_SESSION['password'] = $_SESSION['password'];
+$_SESSION['type'] = $_POST['inputType'];
+$_SESSION['email']=  $_POST['inputEmail'];
+$_SESSION['timeout_idle'] = time() + 2*24*60;
+   
+
+setcookie('email',$_POST['inputEmail'], time() + 365*24*3600, null, null, false, true); 
 
 $servername = "localhost";
 $username = "root";
@@ -23,7 +26,7 @@ if (!$connect) {
         if($_POST['inputPassword'] == $row['password'])
         {
             if($_POST['inputType'] == $row['type'] && $row['type'] == 'Client'){
-                header("location:http://localhost/EcommercePhp/CLient/index.php");
+                header("location:http://localhost/EcommercePhp/Client/index.php");
             }elseif($_POST['inputType'] == $row['type'] && $row['type'] == 'Manager'){
                 header("location:http://localhost/EcommercePhp/Admin/index.html");
             }else {

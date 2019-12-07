@@ -1,3 +1,21 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['type']) || $_SESSION['type'] != 'Manager'){
+        header('Location: http://localhost/EcommercePhp/Client/index.php');
+    }
+    
+    // Vérification de la duree de la session
+    if (!isset($_SESSION['timeout_idle'])) {
+        $_SESSION['timeout_idle'] = time() + 2*24*60;
+    } 
+    else {
+        if ($_SESSION['timeout_idle'] < time()) {
+        } 
+        else {
+            $_SESSION['timeout_idle'] = time() + 2*24*60;
+        }
+    }
+ ?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
