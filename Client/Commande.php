@@ -11,6 +11,7 @@
             $password = "";
             $dbname = "ecommerce";
             $connect = mysqli_connect($servername, $username, $password, $dbname);
+            
             if (!$connect) {
                 echo "Echec de Connection : " . mysqli_connect_error();
             }
@@ -33,24 +34,24 @@
             }   
             }
             if (isset($_POST['boutton']) && $_POST['boutton']== 'Payer'){
-                if (isset($_POST['Nom']) && is_array($_POST['Nom'])){
-                foreach ($_POST['Nom'] as $Panier){
+                if (isset($_POST['NomAchat']) && is_array($_POST['NomAchat'])){
+                foreach ($_POST['NomAchat'] as $Panier){
                     $tabPanier= explode("_",$Panier);
                     foreach ($tabPanier as $value){
-                        $req="SELECT Quantité FROM article WHERE Nom='$value'";
-                        $recup=mysqli_query($connect, $req) or die ('Erreur SQL !'.$req.'<br />'. mysqli_error($connect));;;
-                        $req="SELECT QuantitéAchat FROM commande WHERE Nom='.$value.'";
-                        $recupachat=mysqli_query($connect, $req) or die ('Erreur SQL !'.$req.'<br />'. mysqli_error($connect));;;
+                        $req="SELECT Quantite FROM article WHERE Nom='$value'";
+                        $recup=mysqli_query($connect, $req) or die ('Erreur SQL !'.$req.'<br />'. mysqli_error($connect));
+                        $req="SELECT QuantiteAchat FROM commande WHERE Nom='$value'";
+                        $recupachat=mysqli_query($connect, $req) or die ('Erreur SQL !'.$req.'<br />'. mysqli_error($connect));
                         
                         if (mysqli_num_rows($recup) >0 && mysqli_num_rows($recupachat) >0) {
                             $row = mysqli_fetch_assoc($recup);
                             $row1 = mysqli_fetch_assoc($recupachat);
 
                         }
-                        echo mysqli_num_rows($recup),$value;
-                        $achat=$row['Quantité']-$row1['QuantitéAchat'];
-                        $req="UDAPTE article SET Quantité='.$achat.' WHERE Nom='.$value.'";
-                        $udapte= mysqli_query($connect, $req);
+                        $achat=intval($row['Quantite'])-intval($row1['QuantiteAchat']);
+                        echo $row['Quantite'],$row1['QuantiteAchat'];
+                        $req="UPDATE article SET Quantite=".$achat." WHERE Nom='$value'";
+                        $udapte= mysqli_query($connect, $req) or die ('Erreur SQL !'.$req.'<br />'. mysqli_error($connect));
                         $req="DELETE from commande WHERE Nom='$value'";
                         $erase= mysqli_query($connect, $req);
                     }   
@@ -110,11 +111,12 @@
                                       die('Erreur : '.$e->getMessage());
                               }
                               $email=$_SESSION['email'];
-                              $articles= $bdd->query("SELECT NumCommande,Nom,Image,PrixAchat,QuantitéAchat  FROM commande WHERE Etat=0 and EmailClient='".$email."' ");?>
+                              $articles= $bdd->query("SELECT NumCommande,Nom,Image,PrixAchat,QuantiteAchat  FROM commande WHERE Etat=0 and EmailClient='".$email."' ");?>
                             
                               <?php
                                 $count=0;
-                                while ($donnee = $articles->fetch()){?>
+                                while ($donnee = $articles->fetch()){
+                                    if ($donnee['Quantite']>0){?>
                                       <div class="col-lg-4 col-sm-6 mb-4 ">
                                         <div class="card h-100">
                                           <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
@@ -124,12 +126,12 @@
                                                 <a href="#"><?php echo $donnee['Nom'];?></a>
                                             </h4>
                                             <p class="card-text">Prix : <?php echo $donnee['PrixAchat'];?></p>
-                                            <p class="card-text">Quantité : <?php echo $donnee['QuantitéAchat'];?></p>
-                                            <input type="hidden" name="Nom[]" Value='<?php echo $donnee['Nom']."_";?>'>
+                                            <p class="card-text">Quantité : <?php echo $donnee['QuantiteAchat'];?></p>
+                                            <input type="hidden" name="NomAchat[]" Value='<?php echo $donnee['Nom']."_";?>'>
                                           </div>
                                         </div>
                                       </div>
-                                <?php 
+                                    <?php }
                                 $count=$count+1;
                                 }
                                 if ($count==0){

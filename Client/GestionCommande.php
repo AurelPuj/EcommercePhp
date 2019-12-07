@@ -35,10 +35,10 @@ if (isset($_GET['message'])){
                           <a class="nav-link" href="http://localhost/EcommercePhp/Client/index.php">Acceuil</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/GestionCommande">Rechercher</a>
+                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/GestionCommande.php">Rechercher</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/Commande">Pannier</a>
+                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/Commande.php">Pannier</a>
                         </li>
                       </ul>
                     </div>
@@ -97,10 +97,10 @@ if (isset($_GET['message'])){
                                         {
                                                 die('Erreur : '.$e->getMessage());
                                         }
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article");
 
                                         while ($donnee = $articles->fetch()){
-                                                if ($donnee['Quantité']!=0){    
+                                                if ($donnee['Quantite']>0){    
                                                 ?>
                                                       <div class="col-lg-4 col-sm-6 mb-4">
                                                         <form action="http://localhost/EcommercePhp/Client/Commande.php" method="post">
