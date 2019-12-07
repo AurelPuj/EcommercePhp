@@ -75,20 +75,38 @@ and open the template in the editor.
                                   die('Erreur : '.$e->getMessage());
                           }
 
-                          $articles= $bdd->query("SELECT Nom,Image,Description FROM article");
-                          while ($donnee = $articles->fetch()){?>
-                                <div class="col-lg-4 col-sm-6 mb-4">
-                                  <div class="card h-100">
-                                    <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                    <div class="card-body">
-                                      <h4 class="card-title">
-                                        <a href="#"><?php echo $donnee['Nom'];?></a>
-                                      </h4>
-                                      <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                    </div>
-                                  </div>
-                                </div>
-                          <?php }?>
+                          $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie,TVA  FROM article");
+                          while ($donnee = $articles->fetch()){
+                                
+                                                ?>
+                                                      <div class="col-lg-4 col-sm-6 mb-4">
+                                                        <form action="http://localhost/EcommercePhp/Admin/Modifier.php" method="post">
+                                                        <div class="card h-100">
+                                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                          
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">
+                                                                  <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                                </h4>
+                                                                <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                                <p class="card-text" name="fesse">Catégorie :<?php echo $donnee['Catégorie'];?></p>
+                                                                <p class="card-text">Marque :<?php echo $donnee['Marque'];?></p>
+                                                                <p class="card-text">Prix :<?php echo $donnee['Prix'];?></p>
+                                                                <p class="card-text">Quantité :<?php echo $donnee['Quantite'];?></p>
+                                                                <input type="hidden" name="Nom" value="<?php echo $donnee['Nom'];?>">
+                                                                <input type="hidden" name="Image" value="<?php echo $donnee['Image'];?>">
+                                                                <input type="hidden" name="Prix" value="<?php echo $donnee['Prix'];?>">
+                                                                <input type="hidden" name="Catégorie" value="<?php echo $donnee['Catégorie'];?>">
+                                                                <input type="hidden" name="Marque" value="<?php echo $donnee['Marque'];?>">
+                                                                <input type="hidden" name="TVA" value="<?php echo $donnee['TVA'];?>">
+                                                                <input type="hidden" name="Quantite" value="<?php echo $donnee['Quantite'];?>">
+                                                                <input type="hidden" name="Description" value="<?php echo $donnee['Description'];?>">
+                                                            </div>
+                                                        </div>
+                                                        <input class="form-control" type="submit" value="Modifier" />
+                                                       </form>
+                                                      </div>
+                                                <?php }?>
                     
                 </div>
         </section>

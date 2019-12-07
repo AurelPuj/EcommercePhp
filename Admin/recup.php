@@ -15,25 +15,27 @@
             $_SESSION['timeout_idle'] = time() + 2*24*60;
         }
     }
- ?>
-     <?php
+ 
 
-$Nom=$_POST['NomProduit'];
-$Image=$_POST['Url'];
-$Description=$_POST['Description'];
-$Quantité=$_POST['Quantité'];
-$Marque=$_POST['Marque'];
-$Catégorie=$_POST['Catégorie'];
-$Prix=$_POST['Prix'];
-$TVA=$_POST['TVA'];
+    $Nom=$_POST['NomProduit'];
+    $Image=$_POST['Url'];
+    $Description=$_POST['Description'];
+    $Quantité=$_POST['Quantité'];
+    $Marque=$_POST['Marque'];
+    $Catégorie=$_POST['Catégorie'];
+    $Prix=$_POST['Prix'];
+    $TVA=$_POST['TVA'];
 
-$connect = mysqli_connect('localhost', 'root', '', 'ecommerce');
+    $connect = mysqli_connect('localhost', 'root', '', 'ecommerce');
 
-if (!$connect) {
-    echo "Echec de Connection : " . mysqli_connect_error();
-}
+    if (!$connect) {
+        echo "Echec de Connection : " . mysqli_connect_error();
+    }
 
-$sql = 'INSERT INTO article VALUES("0","'.$Nom.'","'.$Image.'","'.$Description.'","'.$Quantité.'","'.$Marque.'","'.$Catégorie.'","'.$Prix.'","'.$TVA.'")';
+    $value = $_POST['NomProduit'];
+    $sql="DELETE from article WHERE Nom='$value'";
+    $result = mysqli_query($connect, $sql) or die ('Erreur SQL !'.$sql.'<br />'. mysqli_error($connect));
 
-mysqli_query($connect, $sql) or die ('Erreur SQL !'.$sql.'<br />'. mysqli_error($connect));;
-header("location:index.html");
+    $sql = 'INSERT INTO article VALUES("0","'.$Nom.'","'.$Image.'","'.$Description.'","'.$Quantité.'","'.$Marque.'","'.$Catégorie.'","'.$Prix.'","'.$TVA.'")';
+    mysqli_query($connect, $sql) or die ('Erreur SQL !'.$sql.'<br />'. mysqli_error($connect));
+    header('Location: index.html'); 

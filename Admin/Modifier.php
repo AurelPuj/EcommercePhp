@@ -29,7 +29,7 @@
         
     </head>
     <body>
-        <a href="../../../../../../wamp64/www/Ecommerce/Admin/Ajouter.php"></a>
+        
          <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <div class="container">
@@ -54,37 +54,74 @@
             </div>
           </div>
         </nav>
-     
-        <section class="py-5"> 
-                <!-- Page Content -->
-                <div class="container">
+        
+         <form action="http://localhost/EcommercePhp/Admin/recup.php" method="post">
+                <section class="py-5"> 
+                        <!-- Page Content -->
+                        <div class="container">
 
-                  <!-- Portfolio Item Heading -->
-                  <h1 class="my-4">
-                        <input id="Référence" class="form-control" placeholder="Référence produit du produit" required autofocus>
-                  </h1>
-                  <button class="btn btn-lg btn-primary btn-block" type="submit">rechercher</button>
-                </div>
-        </section>
-         <?php
-            
-                // Connexion à la base de données
-                try
-                {
-                        $bdd = new PDO('mysql:host=localhost;dbname=ecommerce;charset=utf8', 'root', '');
-                }
-                catch(Exception $e)
-                {
-                        die('Erreur : '.$e->getMessage());
-                }
+                          <!-- Portfolio Item Heading -->
+                          <h1 class="my-4">
+                                <input name="NomProduit" id="NomProduit" class="form-control" value="<?php echo $_POST['Nom']; ?>" placeholder="Nom du produit" required autofocus>
+                          </h1>
 
-         ?>
+                          <!-- Portfolio Item Row -->
+                          <div class="row">
+
+                            <div class="col-md-8">
+                              <img class="img-fluid" src="<?php echo $_POST['Image']; ?>" alt="">
+                              <input name="Url" id="Url" class="form-control" placeholder="Url"value="<?php echo $_POST['Image']; ?>" required autofocus>
+                            </div>
+
+                            <div class="col-md-4">
+                              <h3 class="my-3">Description</h3>
+                              <input name="Description" id="Description" class="form-control" value="<?php echo $_POST['Description'];?>" required autofocus>
+
+                                <div class="form-label-group">
+                                    <label for="catégorie">Catégorie</label>
+                                    <select name="Catégorie" id="catégorie" value="<?php echo $_POST['Catégorie'];?>" class="form-control">
+                                        <option value="Haut">Haut</option>
+                                        <option value="Bas">Bas</option>
+                                        <option value="Chaussures">Chaussures</option>
+                                    </select>
+                                    
+                                </div>
+
+                                <div class="form-label-group">
+                                    <label for="marque">Marque</label>
+                                    <select name="Marque" id="marque" value="<?php echo $_POST['Catégorie'];?>" class="form-control">
+                                        <option value="H&M">H&M</option>
+                                        <option value="H&MDesign">H&MDesign</option>
+                                        <option value="H&MEnfant">H&MEnfant</option>
+                                    </select>
+                                </div>
+                                <label for="Quantité">Quantité</label>
+                                <input name="Quantité" id="Quantité" class="form-control" value="<?php echo $_POST['Quantite'];?>" required autofocus>
+                                <label for="Prix">Prix</label>
+                                <input name="Prix" id="Prix" class="form-control" value="<?php echo $_POST['Prix'];?>" required autofocus>
+                                <label for="TVA">TVA</label>
+                                <input name="TVA" id="TVA" class="form-control" value="<?php echo $_POST['TVA'];?>" required autofocus>
+                                
+                            </div>
+                              
+                            
+
+                          </div>
+                          <!-- /.row -->
+
+                          <!-- Related Projects Row -->
+                          <input type="submit" value="Envoyer" />
+
+                        </div>
+                        <!-- /.container -->
+                </section>
+         </form>
+             
         <footer class="py-5 bg-dark">
             <div class="container">
               <p class="m-0 text-center text-white">Téléphone : 01.68.85.20.03          Adresse : 6 rue de la mode, Paris</p>
             </div>
             <!-- /.container -->
-          </footer>
+        </footer>
     </body>
 </html>
-<!DOCTYPE html>
