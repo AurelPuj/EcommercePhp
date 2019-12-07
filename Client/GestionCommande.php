@@ -89,21 +89,30 @@
                                               die('Erreur : '.$e->getMessage());
                                       }
 
-                                      $articles= $bdd->query("SELECT Nom,Image,Description FROM article");
-                                      while ($donnee = $articles->fetch()){?>
-                                            <div class="col-lg-4 col-sm-6 mb-4">
-                                              <div class="card h-100">
-                                                <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                                <div class="card-body">
-                                                  <h4 class="card-title">
-                                                    <a href="#"><?php echo $donnee['Nom'];?></a>
-                                                  </h4>
-                                                  <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                                </div>
-                                              </div>
-                                            </div>
-                                      <?php }?>
-
+                                      $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article");
+                                        while ($donnee = $articles->fetch()){
+                                                if ($donnee['Quantité']!=0){    
+                                                ?>
+                                                      <div class="col-lg-4 col-sm-6 mb-4">
+                                                        <div class="card h-100">
+                                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                          <div class="card-body">
+                                                            <h4 class="card-title">
+                                                              <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                            </h4>
+                                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                            <p class="card-text">Catégorie :<?php echo $donnee['Catégorie'];?></p>
+                                                            <p class="card-text">Marque :<?php echo $donnee['Marque'];?></p>
+                                                            <p class="card-text">Prix :<?php echo $donnee['Prix'];?></p>
+                                                            <input type="text" name="QuantitéAchat">
+                                                            <label for="QuantitéAchat">Quantité</label>
+                                                          </div>
+                                                          <input class="form-control" type="submit" value="Acheter" />
+                                                        </div>
+                                                      </div>
+                                                <?php }
+                                        }?>
+                                      
                             </div>
                 </section>
                 

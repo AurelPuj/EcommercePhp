@@ -63,276 +63,298 @@ and open the template in the editor.
                             $Marque=$_POST['Marque'];
                           
                             if ($Prixmin==NULL && $Prixmax==NULL && $Catégorie=='nothing' && $Marque=='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix  FROM article");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                    <p class="card-text">Catégorie :<?php echo $donnee['Catégorie'];?></p>
+                                                    <p class="card-text">Marque :<?php echo $donnee['Marque'];?></p>
+                                                    <p class="card-text">Prix :<?php echo $donnee['Prix'];?></p>
+                                                    <input type="text" name="QuantitéAchat">
+                                                    <label for="QuantitéAchat">Quantité</label>
+                                                    <input class="form-control" type="submit" value="Acheter" />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin!=NULL && $Prixmax==NULL && $Catégorie=='nothing' && $Marque=='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Prix > '$Prixmin'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Prix > '$Prixmin'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin!=NULL && $Prixmax==NULL && $Catégorie!="nothing" && $Marque=='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Prix > '$Prixmin' AND Catégorie = '$Catégorie'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Prix > '$Prixmin' AND Catégorie = '$Catégorie'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin!=NULL && $Prixmax==NULL && $Catégorie=="nothing" && $Marque!='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Prix > '$Prixmin' AND Marque = '$Marque'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Prix > '$Prixmin' AND Marque = '$Marque'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin!=NULL && $Prixmax==NULL && $Catégorie!="nothing" && $Marque!='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Prix > '$Prixmin' AND Catégorie='$Catégorie'  AND Marque = '$Marque'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Prix > '$Prixmin' AND Catégorie='$Catégorie'  AND Marque = '$Marque'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin==NULL && $Prixmax!=NULL && $Catégorie=='nothing' && $Marque=='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Prix < '$Prixmax'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Prix < '$Prixmax'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin==NULL && $Prixmax!=NULL && $Catégorie!="nothing" && $Marque=='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Prix<'$Prixmax' AND Catégorie = '$Catégorie'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Prix<'$Prixmax' AND Catégorie = '$Catégorie'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin==NULL && $Prixmax!=NULL && $Catégorie=="nothing" && $Marque!='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Prix<'$Prixmax' AND Marque = '$Marque'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Prix<'$Prixmax' AND Marque = '$Marque'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin==NULL && $Prixmax!=NULL && $Catégorie!="nothing" && $Marque!='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Prix<'$Prixmax' AND Catégorie='$Catégorie'  AND Marque = '$Marque'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Prix<'$Prixmax' AND Catégorie='$Catégorie'  AND Marque = '$Marque'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin!=NULL && $Prixmax!=NULL && $Catégorie=='nothing' && $Marque=='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin!=NULL && $Prixmax!=NULL && $Catégorie!="nothing" && $Marque=='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax' AND Catégorie = '$Catégorie'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax' AND Catégorie = '$Catégorie'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin!=NULL && $Prixmax!=NULL && $Catégorie=="nothing" && $Marque!='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax' AND Marque = '$Marque'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax' AND Marque = '$Marque'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin!=NULL && $Prixmax!=NULL && $Catégorie!="nothing" && $Marque!='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax' AND Catégorie='$Catégorie'  AND Marque = '$Marque'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax' AND Catégorie='$Catégorie'  AND Marque = '$Marque'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin==NULL && $Prixmax==NULL && $Catégorie!='nothing' && $Marque=='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Catégorie='$Catégorie'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Catégorie='$Catégorie'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin==NULL && $Prixmax==NULL && $Catégorie!='nothing' && $Marque!='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Catégorie='$Catégorie' AND Marque = '$Marque'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Catégorie='$Catégorie' AND Marque = '$Marque'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }else if ($Prixmin==NULL && $Prixmax==NULL && $Catégorie=='nothing' && $Marque!='nothing'){
-                                $articles= $bdd->query("SELECT Nom,Image,Description  FROM article WHERE Marque = '$Marque'");
+                                $articles= $bdd->query("SELECT Nom,Image,Description,Quantité  FROM article WHERE Marque = '$Marque'");
                                 while ($donnee = $articles->fetch()){
-                    ?>
-                                      <div class="col-lg-4 col-sm-6 mb-4">
-                                        <div class="card h-100">
-                                          <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
-                                          <div class="card-body">
-                                            <h4 class="card-title">
-                                              <a href="#"><?php echo $donnee['Nom'];?></a>
-                                            </h4>
-                                            <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                          </div>
-                                        </div>
-                                      </div>
-                    <?php 
+                                        if ($donnee['Quantité']!=0){    
+                                        ?>
+                                              <div class="col-lg-4 col-sm-6 mb-4">
+                                                <div class="card h-100">
+                                                  <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
+                                                  <div class="card-body">
+                                                    <h4 class="card-title">
+                                                      <a href="#"><?php echo $donnee['Nom'];?></a>
+                                                    </h4>
+                                                    <p class="card-text"><?php echo $donnee['Description'];?></p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        <?php }
                                 }
                             }
                     ?>
