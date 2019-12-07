@@ -45,16 +45,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Acceuil/index.html">Acceuil</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Connexion/Log.php">Connexion</a>
-
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/index.php">Admin</a>
-
-                </li>
+                    <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Acceuil.php">Acceuil</a>
+                  </li>
               </ul>
             </div>
           </div>
