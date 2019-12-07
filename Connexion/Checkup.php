@@ -28,7 +28,7 @@ if (!$connect) {
             if($_POST['inputType'] == $row['type'] && $row['type'] == 'Client'){
                 header("location:http://localhost/EcommercePhp/Client/index.php");
             }elseif($_POST['inputType'] == $row['type'] && $row['type'] == 'Manager'){
-                header("location:http://localhost/EcommercePhp/Admin/index.html");
+                header("location:http://localhost/EcommercePhp/Admin/index.php");
             }else {
             header("location:log.php?message=faux");
             }
