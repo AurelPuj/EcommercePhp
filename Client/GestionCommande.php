@@ -7,6 +7,12 @@ if (isset($_GET['message'])){
     if ($_GET['message']=='vide'){
         echo '<script type="text/javascript">window.alert("Le Panier est vide !");</script>';
     }
+    if ($_GET['message']=='insuffisant'){
+        echo '<script type="text/javascript">window.alert("Pas assez de Stock !");</script>';
+    }
+    if ($_GET['message']=='payement'){
+        echo '<script type="text/javascript">window.alert("Payement effectué !");</script>';
+    }
 }
 ?>
 
@@ -113,7 +119,7 @@ if (isset($_GET['message'])){
                                                                   <a href="#"><?php echo $donnee['Nom'];?></a>
                                                                 </h4>
                                                                 <p class="card-text"><?php echo $donnee['Description'];?></p>
-                                                                <p class="card-text" name="fesse">Catégorie :<?php echo $donnee['Catégorie'];?></p>
+                                                                <p class="card-text">Catégorie :<?php echo $donnee['Catégorie'];?></p>
                                                                 <p class="card-text">Marque :<?php echo $donnee['Marque'];?></p>
                                                                 <p class="card-text">Prix :<?php echo $donnee['Prix'];?></p>
                                                                 <input type="text" name="QuantitéAchat">

@@ -17,8 +17,18 @@
             }
             
             if(isset ($_POST['QuantitéAchat'])){
-                $sql = 'INSERT INTO commande VALUES("0","'.$_POST['Nom'].'","'.$_POST['Image'].'","'.$_POST['Prix'].'","'.$_POST['QuantitéAchat'].'","'.'0'.'","'.$_SESSION['email'].'")';
-                mysqli_query($connect, $sql) or die ('Erreur SQL !'.$sql.'<br />'. mysqli_error($connect));
+                $value=$_POST['Nom'];
+                $req="SELECT Quantite FROM article WHERE Nom='$value'";
+                $recup=mysqli_query($connect, $req) or die ('Erreur SQL !'.$req.'<br />'. mysqli_error($connect));
+                if (mysqli_num_rows($recup) >0) {
+                            $row = mysqli_fetch_assoc($recup);
+                        }
+                if(intval($row['Quantite'])<intval($_POST['QuantitéAchat'])) {
+                    header('Location: GestionCommande.php?message=insuffisant'); 
+                }else {       
+                    $sql = 'INSERT INTO commande VALUES("0","'.$_POST['Nom'].'","'.$_POST['Image'].'","'.$_POST['Prix'].'","'.$_POST['QuantitéAchat'].'","'.'0'.'","'.$_SESSION['email'].'")';
+                    mysqli_query($connect, $sql) or die ('Erreur SQL !'.$sql.'<br />'. mysqli_error($connect));
+                }
             }
             
             if (isset($_POST['checkbox']) && is_array($_POST['checkbox'])){
@@ -54,8 +64,9 @@
                         $udapte= mysqli_query($connect, $req) or die ('Erreur SQL !'.$req.'<br />'. mysqli_error($connect));
                         $req="DELETE from commande WHERE Nom='$value'";
                         $erase= mysqli_query($connect, $req);
+                        
                     }   
-            }}}   
+            }}header('Location: GestionCommande.php?message=payement'); }   
             
 ?>
 
@@ -132,7 +143,11 @@
                                       </div>
                                     <?php $count=$count+1;}
                                 if ($count==0){
-                                  header('Location: GestionCommande.php?message=vide'); 
+                                  if ($_POST['boutton']== 'Payer'){
+                                      header('Location: GestionCommande.php?message=payement'); 
+                                  }else{  
+                                      header('Location: GestionCommande.php?message=vide'); 
+                                  }
                                 }
                                 ?>
                         </div>
