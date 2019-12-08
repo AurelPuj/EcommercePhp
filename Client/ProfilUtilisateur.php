@@ -57,9 +57,8 @@ if (!$connect) {
 
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/index.html">Admin</a>
-
-                </li>
+                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/UserComs.php">Commentaire</a>
+                        </li>
               </ul>
             </div>
           </div>
