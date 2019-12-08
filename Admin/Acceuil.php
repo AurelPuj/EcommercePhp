@@ -45,6 +45,9 @@ $_SESSION['timeout_idle'] = time() + 2*24*60;
                 <li class="nav-item">
                   <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Liste.php">Gestion</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/AdminComs.php">Commentaire</a>
+                </li>
               </ul>
             </div>
           </div>

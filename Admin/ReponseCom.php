@@ -57,16 +57,32 @@ if (!$connect) {
                 <div class="container">
                    <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
-                         <h3 class="login-heading mb-4">Laisser un commentaire</h3>
-                         <form action="http://localhost/EcommercePhp/Client/checkupComs.php?value=search" method="POST" >
+                         <h3 class="login-heading mb-4">Repondre</h3>
+                         <?php
+                      if (isset($_POST['checkbox']) && is_array($_POST['checkbox'])){
+        foreach ($_POST['checkbox'] as $checkbox){
+           $tabcheckbox= explode("_",$checkbox);
+           foreach ($tabcheckbox as $del){
+               $sql="SELECT commentaire,email FROM commentaire WHERE id_com='$del'";
+               $result = mysqli_query($connect, $sql);
+        if (mysqli_num_rows($result) >0) {
+            $row = mysqli_fetch_assoc($result);
+        }
+                          }
+           }
+        }
+           ?>         <p class="card-text"><?php echo $row['email'];?></p>
+                    <p class="card-text"><?php echo $row['commentaire'];?></p>
+                    <form action="http://localhost/EcommercePhp/Admin/checkupComsAdmin.php?value=rep" method="POST" >
                              <div class="form-label-group">
-                                <label for="commentaire">Votre commentaire :</label>
-                                <textarea class="form-control" name="commentaire" id="commentaire" placeholder="Tapez votre commentaire" maxlength="999" rows="15"></textarea>
+                                <label for="reponse">Votre reponse :</label>
+                                <textarea class="form-control" name="commentaire" id="commentaire" placeholder="Tapez votre reponse" maxlength="999" rows="15"></textarea>
                              </div>
                              <div class="form-label-group">
                              <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Envoyer</button>
                              </div>
                          </form>
+                         
                          <?php
                     if(isset($_GET['message'])){
                         if($_GET['message']=='faux'){
@@ -85,7 +101,7 @@ if (!$connect) {
               <div class="container">
                 <div class="row">
                   <div class="col-md-9 col-lg-8 mx-auto">
-                    <h3 class="login-heading mb-4">Vos anciens commentaire(s) et réponse(s)</h3>
+                    <h3 class="login-heading mb-4">ADMIN</h3>
                     <?php
                       try
                                         {
@@ -95,7 +111,7 @@ if (!$connect) {
                                         {
                                                 die('Erreur : '.$e->getMessage());
                                         }
-                                        $articles= $bdd->query("SELECT commentaire,id_com, reponse FROM commentaire WHERE email ='$email'");
+                                        $articles= $bdd->query("SELECT commentaire,id_com, reponse, email FROM commentaire");
 
                                         while ($donnee = $articles->fetch()){   
                                                 ?>
@@ -103,12 +119,12 @@ if (!$connect) {
                                                         <form>
                                                         
                                                             <div class="card">
-                                                                <p class="card-text">Vous :</p>
+                                                                <p class="card-text"><?php echo $donnee['email'];?></p>
                                                                 <p class="card-text"><?php echo $donnee['commentaire'];?></p>
                                                                 <?php
                                                                 if($donnee['reponse'] != ""){?>
                                                                 <div class="card">
-                                                                <p class="card-text">Admin :</p>
+                                                                <p class="card-text">Admin</p>
                                                                 <p class="card-text"><?php echo $donnee['reponse'];?></p>
                                                                 </div>
                                                                 <?php } ?>

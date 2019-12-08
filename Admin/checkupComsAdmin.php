@@ -12,7 +12,6 @@ $connect = mysqli_connect($servername, $username, $password, $dbname);
 if (!$connect) {
     echo "Echec de Connection : " . mysqli_connect_error();
 }
-if($_GET['value'] == 'search'){
     if(isset($_POST["commentaire"])){
         $commentaire = mysqli_real_escape_string($connect,$_POST["commentaire"]);
         $email = $_SESSION['email'];
@@ -48,23 +47,3 @@ if($_GET['value'] == 'search'){
                 }*/
         
     }
-}
-
-if($_GET['value'] == 'supp'){
-    if (isset($_POST['checkbox']) && is_array($_POST['checkbox'])){
-        foreach ($_POST['checkbox'] as $checkbox){
-           $tabcheckbox= explode("_",$checkbox);
-           foreach ($tabcheckbox as $del){
-               $req="DELETE FROM commentaire WHERE id_com='$del'";
-               $erase= mysqli_query($connect, $req);
-               if($erase==FALSE){
-                   header('Location: http://localhost/EcommercePhp/Admin/AdminComs.php?message=faux');
-               }else{
-                   header('Location: http://localhost/EcommercePhp/Admin/AdminComs.php?message=vrai'); 
-               }
-           }
-        }
-    }else{
-        header('Location: http://localhost/EcommercePhp/Admin/AdminComs.php?message=faux');
-    }
-}
