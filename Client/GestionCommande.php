@@ -72,7 +72,7 @@ if (isset($_GET['message'])){
                                         <option value="H&MEnfant">H&MEnfant</option>
                                     </select>
                                 </div>
-                                </form>
+                                
                                 
                             <!-- Portfolio Item Heading -->
                             <h1 class="my-4">
@@ -82,11 +82,12 @@ if (isset($_GET['message'])){
                             <h1 class="my-4">
                                 <input type="text" name="Prixmax" id="Prixmax" class="form-control" placeholder="Prixmax"autofocus>
                             </h1>
-                                
-                            </div>
                             <div class="my-4">
                                 <input class="form-control" type="submit" value="Rechercher" />
+                            </div>  
+                                </form>
                             </div>
+                            
                             <div class="row">
                                 <?php
                                         try
@@ -122,8 +123,9 @@ if (isset($_GET['message'])){
                                                                 <input type="hidden" name="Catégorie" value="<?php echo $donnee['Catégorie'];?>">
                                                                 <label for="QuantitéAchat">Quantité</label>
                                                             </div>
+                                                          <input class="form-control" type="submit" value="Acheter" />
                                                         </div>
-                                                        <input class="form-control" type="submit" value="Acheter" />
+                                                        
                                                        </form>
                                                       </div>
                                                 <?php }

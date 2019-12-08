@@ -34,10 +34,10 @@ if (!$connect) {
                if($erase==FALSE){
                    echo "c la esse";
                }
-               header('Location: index.html'); 
+               header('Location: Liste.php?message=vrai'); 
            }
         }
     }else{
-        echo 'prout';
+        echo '<script type="text/javascript">window.alert("Impossible de supprimer cet article !");</script>';
     }
 }

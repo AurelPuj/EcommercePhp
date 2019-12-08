@@ -25,26 +25,30 @@ $_SESSION['timeout_idle'] = time() + 2*24*60;
 
 <body>
     
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Acceuil.php">Acceuil</a>
-          </li>
-          <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/index.php">Gestion</a>
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <div class="container">
+            <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Acceuil.php">Acceuil</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Ajouter.php">Ajouter</a>
                 </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Supprimer.php">Supprimer</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Liste.php">Gestion</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
 
   <!-- Header - set the background image for the header in the line below -->
   <header class="py-5 bg-image-full" style="background-image: url('http://www.dayblog.fr/wp-content/uploads/2016/09/Toplook.com-une-boutique-en-ligne-specialisee-dans-la-vente-en-gros-de-vetements-et-de-chaussures.jpg');">

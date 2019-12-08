@@ -33,7 +33,6 @@ and open the template in the editor.
     </head>
     <body>
         
-         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <div class="container">
             <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
@@ -46,8 +45,13 @@ and open the template in the editor.
                     <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Acceuil.php">Acceuil</a>
                   </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/index.php">Gestion</a>
-
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Ajouter.php">Ajouter</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Supprimer.php">Supprimer</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Liste.php">Gestion</a>
                 </li>
               </ul>
             </div>
@@ -72,9 +76,12 @@ and open the template in the editor.
                                       die('Erreur : '.$e->getMessage());
                               }
 
-                              $articles= $bdd->query("SELECT Ref,Nom,Image,Description  FROM article");?>
+                              $articles= $bdd->query("SELECT Ref,Nom,Image,Description,Quantite  FROM article");?>
 
-                              <?php while ($donnee = $articles->fetch()){?>
+                              <?php 
+                              $count=0;
+                              while ($donnee = $articles->fetch()){
+                                  if ($donnee['Quantite']==0){?>
                                     <div class="col-lg-4 col-sm-6 mb-4 ">
                                       <div class="card h-100">
                                         <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
@@ -87,7 +94,14 @@ and open the template in the editor.
                                         </div>
                                       </div>
                                     </div>
-                              <?php }?>
+                              <?php
+                                    $count=$count+1;
+                                  }
+                                }
+                                if ($count==0){
+                                  header('Location: Liste.php?message=faux'); 
+                                }
+                                ?>
                         </div>
                         <input type="submit">
                     </form>

@@ -43,8 +43,13 @@
                     <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Acceuil.php">Acceuil</a>
                   </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/index.php">Gestion</a>
-
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Ajouter.php">Ajouter</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Supprimer.php">Supprimer</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Liste.php">Gestion</a>
                 </li>
               </ul>
             </div>

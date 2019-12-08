@@ -15,6 +15,14 @@
             $_SESSION['timeout_idle'] = time() + 2*24*60;
         }
     }
+    if (isset($_GET['message'])){
+    if ($_GET['message']=='vrai'){
+        echo '<script type="text/javascript">window.alert("Suppression Réussi !");</script>';
+    }
+    if ($_GET['message']=='faux'){
+        echo '<script type="text/javascript">window.alert("Aucun Article à Supprimer !");</script>';
+    }
+}
  ?>
 <!DOCTYPE html>
 <!--
@@ -46,8 +54,13 @@ and open the template in the editor.
                     <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Acceuil.php">Acceuil</a>
                   </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/index.php">Gestion</a>
-
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Ajouter.php">Ajouter</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Supprimer.php">Supprimer</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Liste.php">Gestion</a>
                 </li>
               </ul>
             </div>
@@ -98,8 +111,9 @@ and open the template in the editor.
                                                                 <input type="hidden" name="Quantite" value="<?php echo $donnee['Quantite'];?>">
                                                                 <input type="hidden" name="Description" value="<?php echo $donnee['Description'];?>">
                                                             </div>
+                                                          <input class="form-control" type="submit" value="Modifier" />
                                                         </div>
-                                                        <input class="form-control" type="submit" value="Modifier" />
+                                                        
                                                        </form>
                                                       </div>
                                                 <?php }?>

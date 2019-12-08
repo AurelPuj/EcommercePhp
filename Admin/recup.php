@@ -38,4 +38,4 @@
 
     $sql = 'INSERT INTO article VALUES("0","'.$Nom.'","'.$Image.'","'.$Description.'","'.$Quantité.'","'.$Marque.'","'.$Catégorie.'","'.$Prix.'","'.$TVA.'")';
     mysqli_query($connect, $sql) or die ('Erreur SQL !'.$sql.'<br />'. mysqli_error($connect));
-    header('Location: index.php'); 
+    header('Location: Liste.php'); 

@@ -68,7 +68,7 @@ $_SESSION['timeout_idle'] = time() + 2*24*60;
                                         <option value="H&MEnfant">H&MEnfant</option>
                                     </select>
                                 </div>
-                                </form>
+                                
                            
                             <!-- Portfolio Item Heading -->
                             <h1 class="my-4">
@@ -78,11 +78,13 @@ $_SESSION['timeout_idle'] = time() + 2*24*60;
                             <h1 class="my-4">
                                 <input type="text" name="Prixmax" id="Prixmax" class="form-control" placeholder="Prixmax"autofocus>
                             </h1>
-                                
-                            </div>
                             <div class="my-4">
                                 <input class="form-control" type="submit" value="Rechercher" />
                             </div>
+                            
+                            </form>
+                            </div>
+                            
                             
                             <div class="row">
                                 <?php
@@ -100,43 +102,43 @@ $_SESSION['timeout_idle'] = time() + 2*24*60;
                                         $Marque=$_POST['Marque'];
                                       
                                         if ($Prixmin==NULL && $Prixmax==NULL && $Catégorie=='nothing' && $Marque=='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article");
                                         }else if ($Prixmin!=NULL && $Prixmax==NULL && $Catégorie=='nothing' && $Marque=='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Prix > '$Prixmin'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Prix > '$Prixmin'");
                                         }else if ($Prixmin!=NULL && $Prixmax==NULL && $Catégorie!="nothing" && $Marque=='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Prix > '$Prixmin' AND Catégorie = '$Catégorie'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Prix > '$Prixmin' AND Catégorie = '$Catégorie'");
                                         }else if ($Prixmin!=NULL && $Prixmax==NULL && $Catégorie=="nothing" && $Marque!='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Prix > '$Prixmin' AND Marque = '$Marque'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Prix > '$Prixmin' AND Marque = '$Marque'");
                                         }else if ($Prixmin!=NULL && $Prixmax==NULL && $Catégorie!="nothing" && $Marque!='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Prix > '$Prixmin' AND Catégorie='$Catégorie'  AND Marque = '$Marque'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Prix > '$Prixmin' AND Catégorie='$Catégorie'  AND Marque = '$Marque'");
                                         }else if ($Prixmin==NULL && $Prixmax!=NULL && $Catégorie=='nothing' && $Marque=='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Prix < '$Prixmax'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Prix < '$Prixmax'");
                                         }else if ($Prixmin==NULL && $Prixmax!=NULL && $Catégorie!="nothing" && $Marque=='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Prix<'$Prixmax' AND Catégorie = '$Catégorie'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Prix<'$Prixmax' AND Catégorie = '$Catégorie'");
                                         }else if ($Prixmin==NULL && $Prixmax!=NULL && $Catégorie=="nothing" && $Marque!='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Prix<'$Prixmax' AND Marque = '$Marque'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Prix<'$Prixmax' AND Marque = '$Marque'");
                                         }else if ($Prixmin==NULL && $Prixmax!=NULL && $Catégorie!="nothing" && $Marque!='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Prix<'$Prixmax' AND Catégorie='$Catégorie'  AND Marque = '$Marque'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Prix<'$Prixmax' AND Catégorie='$Catégorie'  AND Marque = '$Marque'");
                                         }else if ($Prixmin!=NULL && $Prixmax!=NULL && $Catégorie=='nothing' && $Marque=='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax'");
                                         }else if ($Prixmin!=NULL && $Prixmax!=NULL && $Catégorie!="nothing" && $Marque=='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax' AND Catégorie = '$Catégorie'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax' AND Catégorie = '$Catégorie'");
                                         }else if ($Prixmin!=NULL && $Prixmax!=NULL && $Catégorie=="nothing" && $Marque!='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax' AND Marque = '$Marque'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax' AND Marque = '$Marque'");
                                         }else if ($Prixmin!=NULL && $Prixmax!=NULL && $Catégorie!="nothing" && $Marque!='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax' AND Catégorie='$Catégorie'  AND Marque = '$Marque'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Prix BETWEEN '$Prixmin' AND '$Prixmax' AND Catégorie='$Catégorie'  AND Marque = '$Marque'");
                                         }else if ($Prixmin==NULL && $Prixmax==NULL && $Catégorie!='nothing' && $Marque=='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Catégorie='$Catégorie'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Catégorie='$Catégorie'");
                                         }else if ($Prixmin==NULL && $Prixmax==NULL && $Catégorie!='nothing' && $Marque!='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Catégorie='$Catégorie' AND Marque = '$Marque'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Catégorie='$Catégorie' AND Marque = '$Marque'");
                                         }else if ($Prixmin==NULL && $Prixmax==NULL && $Catégorie=='nothing' && $Marque!='nothing'){
-                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantité,Marque,Prix,Catégorie  FROM article WHERE Marque = '$Marque'");
+                                        $articles= $bdd->query("SELECT Nom,Image,Description,Quantite,Marque,Prix,Catégorie  FROM article WHERE Marque = '$Marque'");
                                         }
                                 
                                       
                                      
                                         while ($donnee = $articles->fetch()){
-                                                if ($donnee['Quantité']!=0){    
+                                                if ($donnee['Quantite']!=0){    
                                                 ?>
                                                       <div class="col-lg-4 col-sm-6 mb-4">
                                                         <div class="card h-100">

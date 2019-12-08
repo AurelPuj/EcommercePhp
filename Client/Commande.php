@@ -115,8 +115,7 @@
                             
                               <?php
                                 $count=0;
-                                while ($donnee = $articles->fetch()){
-                                    if ($donnee['Quantite']>0){?>
+                                while ($donnee = $articles->fetch()){?>
                                       <div class="col-lg-4 col-sm-6 mb-4 ">
                                         <div class="card h-100">
                                           <img class="card-img-top" src="<?php echo $donnee['Image'];?>" alt="">
@@ -131,13 +130,11 @@
                                           </div>
                                         </div>
                                       </div>
-                                    <?php }
-                                $count=$count+1;
-                                }
+                                    <?php $count=$count+1;}
                                 if ($count==0){
                                   header('Location: GestionCommande.php?message=vide'); 
-  
-                                }?>
+                                }
+                                ?>
                         </div>
                         
                         <input type="submit" name="boutton" value="Payer">
