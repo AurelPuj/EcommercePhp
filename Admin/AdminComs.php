@@ -15,8 +15,10 @@
             $_SESSION['timeout_idle'] = time() + 2*24*60;
         }
     }
- ?>
-//
+    if (isset($_GET['message']) && $_GET['message']=='rien'){
+        echo '<script type="text/javascript">window.alert("Aucune case cochée !");</script>';
+    }
+ ?>//
 <html>
     <head>
         
@@ -145,7 +147,7 @@
                                     <?php
                                         if(isset($_GET['message'])){
                                              if($_GET['message']=='faux'){
-                                                echo "<p style='color:red'>Erreur de suppression</p>";}
+                                                echo '<script type="text/javascript">window.alert("Aucune case cochée !");</script>';;}
                                              if($_GET['message']=='vrai'){
                                                  echo "<p style='color:green'>Suppression reussie</p>";}
                                              if($_GET['message']=='vrai_rep'){

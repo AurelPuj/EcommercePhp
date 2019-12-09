@@ -46,15 +46,20 @@ if (!$connect) {
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Acceuil/index.html">Acceuil</a>
+                    <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Acceuil.php">Acceuil</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Ajouter.php">Ajouter</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Connexion/Log.php">Connexion</a>
-
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Supprimer.php">Supprimer</a>
                 </li>
                 <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/UserComs.php">Commentaire</a>
-                        </li>
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Liste.php">Gestion</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Admin/AdminComs.php">Commentaire</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -70,7 +75,7 @@ if (!$connect) {
                         <div class="col-md-9 col-lg-8 mx-auto">
                          <h3 class="login-heading mb-4">Repondre</h3>
                          <?php
-                      if (isset($_POST['checkbox']) && is_array($_POST['checkbox'])){
+        if (isset($_POST['checkbox']) && is_array($_POST['checkbox'])){
         foreach ($_POST['checkbox'] as $checkbox){
            $tabcheckbox= explode("_",$checkbox);
            foreach ($tabcheckbox as $del){
@@ -78,11 +83,16 @@ if (!$connect) {
                $result = mysqli_query($connect, $sql);
         if (mysqli_num_rows($result) >0) {
             $row = mysqli_fetch_assoc($result);
+            
         }
                           }
            }
+        }else{
+            echo '<script type="text/javascript">window.alert("Aucune case séléctionnée !");</script>';
+            header('Location: AdminComs.php?message=rien'); 
         }
            ?>       <p class="card-text"><?php echo $row['email'];?></p>
+           
                     <p class="card-text"><?php echo $row['commentaire'];?></p>
                     <form action="http://localhost/EcommercePhp/Admin/checkupComsAdmin.php?value=rep" method="POST" >
                              <div class="form-label-group">
