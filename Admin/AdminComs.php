@@ -139,8 +139,24 @@
                                                 $articles= $bdd->query("SELECT commentaire,id_com, reponse, email FROM commentaire");
                                                 break;
                                         }?>
-                                <h4>Recherche pour utilisateur : <?php echo $etat ?> et etat : <?php echo $utilisateur ?></h4>
-                                
+                                    
+                                    <h4>Recherche pour utilisateur : <?php echo $etat ?> et etat : <?php echo $utilisateur ?></h4>
+                                    <div class="col-lg-10 col-sm-6 mb-4" >
+                                    <?php
+                                        if(isset($_GET['message'])){
+                                             if($_GET['message']=='faux'){
+                                                echo "<p style='color:red'>Erreur de suppression</p>";}
+                                             if($_GET['message']=='vrai'){
+                                                 echo "<p style='color:green'>Suppression reussie</p>";}
+                                             if($_GET['message']=='vrai_rep'){
+                                                 echo "<p style='color:green'>Reponse envoyee</p>";}
+                                             if($_GET['message']=='faux_rep'){
+                                                 echo "<p style='color:red'>Echec de l'envoie de la reponse </p>";}
+                                             if($_GET['message']=='faux_vide'){
+                                                 echo "<p style='color:red'>Reponse vide !</p>";}
+                                             }
+                                             ?>
+                                    </div>
                                 <!---<form action="http://localhost/EcommercePhp/Client/checkupComs.php?value=rep" method="POST">--->
     
                                        <?php
@@ -177,14 +193,7 @@
                                      </form>
                                                 
                             </div>
-                                    <?php
-                                        if(isset($_GET['message'])){
-                                             if($_GET['message']=='faux'){
-                                                echo "<p style='color:red'>Erreur de suppression</p>";}
-                                             if($_GET['message']=='vrai'){
-                                                 echo "<p style='color:green'>Suppression reussie</p>";}
-                                             }
-                                             ?>
+                                   
                 </section>
                 
         

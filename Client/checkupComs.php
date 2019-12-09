@@ -30,22 +30,7 @@ if($_GET['value'] == 'search'){
                 } else {
                     header("location:UserComs.php?message=faux");
 
-                 }
-        /*if($_POST['inputOldPassword'] != $row['password']){
-            header("location:ProfilUtilisateur.php?message=Pass_faux");
-        }elseif(!preg_match("#^[A-Z]([A-Za-z0-9]){6,}[a-z]$#", $inputNewPassword)){
-                header("location:ProfilUtilisateur.php?message=Pass_invalide");
-            }elseif($inputNewPassword != $inputR_NewPassword) {
-                header("location:ProfilUtilisateur.php?message=Match_invalide");
-            } else{
-                $sql = "UPDATE compte SET password='$inputNewPassword' WHERE email ='$email'";
-                if (mysqli_query($connect, $sql)) {
-                    header("location:ProfilUtilisateur.php?message=vrai");
-                } else {
-                    header("location:ProfilUtilisateur.php?message=faux");
-
-                 }
-                }*/
+                }
         
     }
 }

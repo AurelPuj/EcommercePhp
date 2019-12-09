@@ -12,6 +12,7 @@ $connect = mysqli_connect($servername, $username, $password, $dbname);
 if (!$connect) {
     echo "Echec de Connection : " . mysqli_connect_error();
 }
+if($_GET['value'] != 'rep'){
     if(isset($_POST["commentaire"])){
         $commentaire = mysqli_real_escape_string($connect,$_POST["commentaire"]);
         $email = $_SESSION['email'];
@@ -30,20 +31,21 @@ if (!$connect) {
                     header("location:UserComs.php?message=faux");
 
                  }
-        /*if($_POST['inputOldPassword'] != $row['password']){
-            header("location:ProfilUtilisateur.php?message=Pass_faux");
-        }elseif(!preg_match("#^[A-Z]([A-Za-z0-9]){6,}[a-z]$#", $inputNewPassword)){
-                header("location:ProfilUtilisateur.php?message=Pass_invalide");
-            }elseif($inputNewPassword != $inputR_NewPassword) {
-                header("location:ProfilUtilisateur.php?message=Match_invalide");
-            } else{
-                $sql = "UPDATE compte SET password='$inputNewPassword' WHERE email ='$email'";
-                if (mysqli_query($connect, $sql)) {
-                    header("location:ProfilUtilisateur.php?message=vrai");
-                } else {
-                    header("location:ProfilUtilisateur.php?message=faux");
-
-                 }
-                }*/
         
     }
+}elseif ($_GET['value'] == 'rep') {
+    if(isset($_POST["reponse"])){
+        $rep = mysqli_real_escape_string($connect,$_POST["reponse"]);
+        $id_com = mysqli_real_escape_string($connect,$_POST["id_com"]);
+        $sql = "UPDATE commentaire SET reponse='$rep' WHERE id_com = '$id_com'";
+        
+        if (mysqli_query($connect, $sql)) {
+                    header("location:AdminComs.php?message=vrai_rep");
+                } else {
+                    header("location:AdminComs.php?message=faux_rep");
+
+                 }
+    } else{
+        header("location:AdminComs.php?message=faux_vide");
+    }
+}

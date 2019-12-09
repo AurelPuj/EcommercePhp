@@ -63,7 +63,7 @@ if (!$connect) {
         foreach ($_POST['checkbox'] as $checkbox){
            $tabcheckbox= explode("_",$checkbox);
            foreach ($tabcheckbox as $del){
-               $sql="SELECT commentaire,email FROM commentaire WHERE id_com='$del'";
+               $sql="SELECT commentaire,email,id_com FROM commentaire WHERE id_com='$del'";
                $result = mysqli_query($connect, $sql);
         if (mysqli_num_rows($result) >0) {
             $row = mysqli_fetch_assoc($result);
@@ -76,7 +76,8 @@ if (!$connect) {
                     <form action="http://localhost/EcommercePhp/Admin/checkupComsAdmin.php?value=rep" method="POST" >
                              <div class="form-label-group">
                                 <label for="reponse">Votre reponse :</label>
-                                <textarea class="form-control" name="commentaire" id="commentaire" placeholder="Tapez votre reponse" maxlength="999" rows="15"></textarea>
+                                <textarea class="form-control" name="reponse" id="reponse" placeholder="Tapez votre reponse" maxlength="999" rows="15"></textarea>
+                                 <input type="hidden" name="id_com" id="id_com" value="<?php echo $row['id_com']; ?> ">
                              </div>
                              <div class="form-label-group">
                              <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Envoyer</button>
