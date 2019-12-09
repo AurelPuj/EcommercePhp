@@ -52,10 +52,9 @@ if (isset($_GET['message'])){
                 </nav>
         
                 <section class="py-5"> 
-                        <!-- Page Content -->
+                    
                         <div class="container">
 
-                          <!-- Portfolio Item Row -->
                             <div class="my-4">
                                 <form action="http://localhost/EcommercePhp/Client/ListeClient.php" method="post">
                                 <div class="form-label-group">
@@ -78,9 +77,7 @@ if (isset($_GET['message'])){
                                         <option value="H&MEnfant">H&MEnfant</option>
                                     </select>
                                 </div>
-                                
-                                
-                            <!-- Portfolio Item Heading -->
+                            
                             <h1 class="my-4">
                                 <input type="text" name="Prixmin" id="Prixmin" class="form-control" placeholder="Prixmin"autofocus>
                             </h1>
@@ -138,6 +135,7 @@ if (isset($_GET['message'])){
                                         }?>
                                       
                             </div>
+                        </div>
                 </section>
                 
 

@@ -48,7 +48,7 @@
                           <a class="nav-link" href="http://localhost/EcommercePhp/Client/Commande.php">Pannier</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/AdminComs.php">Commentaire</a>
+                          <a class="nav-link" href="http://localhost/EcommercePhp/Admin/AdminComs.php">Commentaire</a>
                         </li>
                       </ul>
                     </div>
@@ -58,19 +58,18 @@
         
                 <section class="py-5"> 
                         <div class="container">
+                            <h4>Recherche</h4>
                             <div class="my-4">
-                                <form action="http://localhost/EcommercePhp/Admin/AdminComs.php" method="POST">
+                                <form  action="http://localhost/EcommercePhp/Admin/AdminComs.php" method="POST">
                                 <div class="form-label-group">
-                                    <label for="etat">Recherche</label>
                                     <select name="etat" id="etat" class="form-control">
                                         <option value="tous">Tous</option>
                                         <option value="repondu">repondu</option>
                                         <option value="n_repondu">non repondu</option>
                                     </select>
-                                    
                                 </div>
-                                <?php
-                      try
+                            <?php
+                            try
                                         {
                                                 $bdd = new PDO('mysql:host=localhost;dbname=ecommerce;charset=utf8', 'root', '');
                                         }
@@ -81,22 +80,22 @@
                                         $articles= $bdd->query("SELECT DISTINCT email FROM commentaire");
                                         ?>
                                         <div class="form-label-group">
-                                        <select name="utilisateur" id="utilisateur" class="form-control">
-                                            <option value="all">Tous</option>
-                                            <?php
-                                        while ($donnee = $articles->fetch()){   
-                                                ?>
-                                                <option value="<?php echo $donnee['email'];?>"><?php echo $donnee['email'];?></option>
-                                                                <?php } ?>
-                            <div class="my-4">
+                                            <select name="utilisateur" id="utilisateur" class="form-control">
+                                                <option value="all">Tous</option>
+                                                <?php
+                                            while ($donnee = $articles->fetch()){   
+                                                    ?>
+                                                    <option value="<?php echo $donnee['email'];?>"><?php echo $donnee['email'];?></option>
+                                                                    <?php } ?>
+                                            </select>
+                                        </div>
                                 <input class="form-control" type="submit" value="Rechercher" />
-                            </div> 
-                                                <form action="http://localhost/EcommercePhp/Admin/AdminComs.php" method="POST">
-                            </div>
                             
-                            <div class="row">
+                                </form>
+                            
+                            
                                 <?php
-                      try
+                            try
                                         {
                                                 $bdd = new PDO('mysql:host=localhost;dbname=ecommerce;charset=utf8', 'root', '');
                                         }
@@ -140,7 +139,8 @@
                                                 break;
                                         }?>
                                     
-                                    <h4>Recherche pour utilisateur : <?php echo $etat ?> et etat : <?php echo $utilisateur ?></h4>
+                                    <h4>Recherche pour utilisateur : <?php echo $utilisateur ?></h4>
+                                    <div class="row">
                                     <div class="col-lg-10 col-sm-6 mb-4" >
                                     <?php
                                         if(isset($_GET['message'])){
@@ -167,8 +167,8 @@
                                                         <form id="item" action="http://localhost/EcommercePhp/Client/checkupComs.php?value=supp" method="POST">
                                                         
                                                             <div class="card">
-
-                                                                <p class="card-text"><input form="item" type="checkbox" name="checkbox[]" value='<?php echo $donnee['id_com']."_";?>'>Email : <?php echo $donnee['email'];?></p>
+                                                                
+                                                                <p class="card-text"><input form="item" type="checkbox" name="checkbox[]" value='<?php echo $donnee['id_com']."_";?>'> Email : <?php echo $donnee['email'];?></p>
                                                                 <p class="card-text">Commentaire :</p>
                                                                 <p class="card-text"><?php echo $donnee['commentaire'];?></p>
                                                                 
@@ -186,7 +186,7 @@
                                                                 } ?>
                                                             </div>
                                                         <input form="item" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" value="Supprimer" />
-                                                        <input form="item" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" value="Repondre" formaction="http://localhost/EcommercePhp/Admin/ReponseCom.php" />
+                                                        <input form="item" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type ="submit" value ="Répondre" formaction="http://localhost/EcommercePhp/Admin/ReponseCom.php" />
                                                           </form>
                                                       </div>
                                                 <?php 
@@ -194,7 +194,7 @@
                                      </form>
                                                 
                             </div>
-                                   
+                      </div>         
                 </section>
                 
         
