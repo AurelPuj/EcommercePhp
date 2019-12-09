@@ -61,7 +61,7 @@ if (!$connect) {
                          <form action="http://localhost/EcommercePhp/Client/checkupComs.php?value=search" method="POST" >
                              <div class="form-label-group">
                                 <label for="commentaire">Votre commentaire :</label>
-                                <textarea class="form-control" name="commentaire" id="commentaire" placeholder="Tapez votre commentaire" maxlength="999" rows="15"></textarea>
+                                <textarea class="form-control" name="commentaire" id="commentaire" placeholder="Tapez votre commentaire" maxlength="255" rows="15"></textarea>
                              </div>
                              <div class="form-label-group">
                              <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Envoyer</button>

@@ -25,7 +25,7 @@ if($_GET['value'] == 'search'){
         $nom = $row["nom"];
         $prenom = $row["prenom"];
         $sql = "INSERT INTO commentaire (email, nom, prenom, commentaire) VALUES ('$email','$nom','$prenom','$commentaire')";
-        if (mysqli_query($connect, $sql)) {
+        if (mysqli_query($connect, $sql)or die ('Erreur SQL !'.$sql.'<br />'. mysqli_error($connect))) {
                     header("location:UserComs.php?message=vrai");
                 } else {
                     header("location:UserComs.php?message=faux");
