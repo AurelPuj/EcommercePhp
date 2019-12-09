@@ -33,29 +33,33 @@
     <body>
         
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                  <div class="container">
-                    <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                      <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/index.php">Acceuil</a>
+                <div class="container">
+                  <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Acceuil.php">Acceuil</a>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/GestionCommande.php">Rechercher</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/Commande.php">Pannier</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/EcommercePhp/Admin/AdminComs.php">Commentaire</a>
-                        </li>
-                      </ul>
-                    </div>
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Ajouter.php">Ajouter</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Supprimer.php">Supprimer</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/EcommercePhp/Admin/Liste.php">Gestion</a>
+
+                      </li>
+                      <li class="nav-item">
+                                <a class="nav-link" href="http://localhost/EcommercePhp/Admin/AdminComs.php">Commentaire</a>
+                      </li>
+                    </ul>
                   </div>
-                </nav>
+                </div>
+              </nav>
         
         
                 <section class="py-5"> 
