@@ -1,9 +1,20 @@
 <?php
 session_start();
-$_SESSION['type'] = $_SESSION['type'];
-$_SESSION['email']= $_SESSION['email'];
-$_SESSION['timeout_idle'] = time() + 2*24*60;
-
+    if(!isset($_SESSION['type']) || $_SESSION['type'] != 'Manager'){
+        header('Location: http://localhost/EcommercePhp/Client/index.php');
+    }
+    
+    // Vérification de la duree de la session
+    if (!isset($_SESSION['timeout_idle'])) {
+        $_SESSION['timeout_idle'] = time() + 2*24*60;
+    } 
+    else {
+        if ($_SESSION['timeout_idle'] < time()) {
+        } 
+        else {
+            $_SESSION['timeout_idle'] = time() + 2*24*60;
+        }
+    }
 $servername = "localhost";
 $username = "root";
 $password = "";

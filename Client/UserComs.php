@@ -49,7 +49,7 @@ if (!$connect) {
           </div>
         </nav>
      
-        
+        <section class="py-5">
         <div class="container-fluid">
         <div class="row no-gutter">
             <div class="col-md-8 col-lg-6">
@@ -125,6 +125,7 @@ if (!$connect) {
       </div>
     </div>
     </div>
+        </section>
         
         <footer class="py-5 bg-dark">
         <div class="container">

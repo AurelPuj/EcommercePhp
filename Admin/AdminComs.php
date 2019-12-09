@@ -48,7 +48,7 @@
                           <a class="nav-link" href="http://localhost/EcommercePhp/Client/Commande.php">Pannier</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/UserComs.php">Commentaire</a>
+                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/AdminComs.php">Commentaire</a>
                         </li>
                       </ul>
                     </div>
@@ -168,9 +168,10 @@
                                                         
                                                             <div class="card">
 
-                                                                <p class="card-text"><?php echo $donnee['email'];?></p>
+                                                                <p class="card-text"><input form="item" type="checkbox" name="checkbox[]" value='<?php echo $donnee['id_com']."_";?>'>Email : <?php echo $donnee['email'];?></p>
+                                                                <p class="card-text">Commentaire :</p>
                                                                 <p class="card-text"><?php echo $donnee['commentaire'];?></p>
-                                                                <input form="item" type="checkbox" name="checkbox[]" value='<?php echo $donnee['id_com']."_";?>'>
+                                                                
                                                                 <?php
                                                                 
                                                                 if($donnee['reponse'] != ""){?>
