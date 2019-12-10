@@ -30,26 +30,33 @@ if (isset($_GET['message'])){
     <body>
         
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                  <div class="container">
-                    <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                      <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/index.php">Acceuil</a>
+                <div class="container">
+                  <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/EcommercePhp/Client/index.php">Acceuil</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/EcommercePhp/Client/GestionCommande.php">Rechercher</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/EcommercePhp/Client/Commande.php">Pannier</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/UserComs.php">Commentaire</a>
                         </li>
+                        
                         <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/GestionCommande.php">Rechercher</a>
+                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/ProfilUtilisateur.php">Profil</a>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/Commande.php">Pannier</a>
-                        </li>
-                      </ul>
-                    </div>
+                    </ul>
                   </div>
-                </nav>
+                </div>
+              </nav>
         
                 <section class="py-5"> 
                     
@@ -126,7 +133,7 @@ if (isset($_GET['message'])){
                                                                 <input type="hidden" name="Catégorie" value="<?php echo $donnee['Catégorie'];?>">
                                                                 <label for="QuantitéAchat">Quantité</label>
                                                             </div>
-                                                          <input class="form-control" type="submit" value="Acheter" />
+                                                          <input class="form-control" type="submit" value="Ajouter au panier" />
                                                         </div>
                                                         
                                                        </form>

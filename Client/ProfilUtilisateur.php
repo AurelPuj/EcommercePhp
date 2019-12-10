@@ -42,29 +42,35 @@ if (!$connect) {
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-          <div class="container">
-            <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Acceuil/index.html">Acceuil</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Connexion/Log.php">Connexion</a>
-
-                </li>
-                <li class="nav-item">
+                <div class="container">
+                  <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/EcommercePhp/Client/index.php">Acceuil</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/EcommercePhp/Client/GestionCommande.php">Rechercher</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/EcommercePhp/Client/Commande.php">Pannier</a>
+                      </li>
+                      <li class="nav-item">
                           <a class="nav-link" href="http://localhost/EcommercePhp/Client/UserComs.php">Commentaire</a>
                         </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+                        
+                        <li class="nav-item">
+                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/ProfilUtilisateur.php">Profil</a>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
      
-        
+       <section class="py-5"> 
         <div class="container-fluid">
         <div class="row no-gutter">
             <div class="col-md-8 col-lg-6">
@@ -256,6 +262,7 @@ if (!$connect) {
           </div>
         </div>
       </div>
+       </section>
         
         <footer class="py-5 bg-dark">
         <div class="container">

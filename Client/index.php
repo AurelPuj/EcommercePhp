@@ -22,27 +22,6 @@ $_SESSION['timeout_idle'] = time() + 2*24*60;
 
 
     </head>
-<body>
-    
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="http://localhost/EcommercePhp/Client/index.php">Acceuil</a>
-          </li>
-            <a class="nav-link" href="http://localhost/EcommercePhp/Client/GestionCommande.php">Commande</a>
-          </li>
-            <a class="nav-link" href="http://localhost/EcommercePhp/Client/ProfilUtilisateur.php">Profil</a>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
     <body>
 
@@ -65,6 +44,10 @@ $_SESSION['timeout_idle'] = time() + 2*24*60;
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="http://localhost/EcommercePhp/Client/UserComs.php">Commentaire</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/ProfilUtilisateur.php">Profil</a>
                         </li>
                     </ul>
                   </div>

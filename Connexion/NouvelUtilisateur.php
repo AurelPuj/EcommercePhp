@@ -25,7 +25,7 @@ $_SESSION['timeout_idle'] = time() + 2*24*60;
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Acceuil/index.html">Acceuil</a>
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Acceuil/index.html">Accueil</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="http://localhost/EcommercePhp/Connexion/Log.php">Connexion</a>

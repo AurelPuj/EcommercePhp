@@ -64,8 +64,8 @@ if($_GET['value']=='modifier'){
         }elseif(!preg_match("#([0-9]){5}$#", $inputZip)){
             header("location:ProfilUtilisateur.php?message=Zip_invalide");
         }else{
-            $sql = "UPDATE compte SET numero='$inputNumero', nom='$inputNom', prenom='$inputPrenom', zip='$inputZip', Adresse='$inputAdresse',sexe='$inputSexe',situation='$inputSituation', date_naissance='$inputDate_naissance' WHERE email ='$email'";
-            if (mysqli_query($connect, $sql)) {
+            $sql = "UPDATE compte SET numero='$inputNumero', nom='$inputNom', prenom='$inputPrenom', zip='$inputZip', adresse='$inputAdresse',sexe='$inputSexe',situation='$inputSituation', date_naissance='$inputDate_naissance' WHERE email ='$email'";
+            if (mysqli_query($connect, $sql)or die ('Erreur SQL !'.$sql.'<br />'. mysqli_error($connect))) {
             header("location:ProfilUtilisateur.php?message=vrai");
 	} else {
             header("location:ProfilUtilisateur.php?message=faux");

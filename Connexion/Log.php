@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Acceuil/index.html">Acceuil</a>
+                  <a class="nav-link" href="http://localhost/EcommercePhp/Acceuil/index.html">Accueil</a>
                 </li>
               </ul>
             </div>
@@ -39,8 +39,8 @@
                     <form action="http://localhost/EcommercePhp/Connexion/Checkup.php?value=connexion" method="POST">
                        <div class="form-label-group">
                            <select name="inputType" id="inputType" class="form-control">
-                               <option value="Manager">Manager</option>
                                <option value="Client">Client</option>
+                               <option value="Manager">Manager</option>
                            </select>
                        </div>
                         
