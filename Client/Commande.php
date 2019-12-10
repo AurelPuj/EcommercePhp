@@ -72,37 +72,43 @@
 
 <html>
     <head>
+          <link rel="icon" type="image/ico" href="https://img.generation-nt.com/logo-materiel-net_040003C501642167.png" />
+        <title>Connexion</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        
-        <link rel="icon" type="image/ico" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1200px-H%26M-Logo.svg.png" />
-        <title>H&M</title>
-        
+        <link href="css/Login.css" rel="stylesheet">
     </head>
     <body>
-        
          <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <div class="container">
-            <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
+            <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Materiel.net</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Client/index.php">Acceuil</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Client/GestionCommande">Rechercher</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="http://localhost/EcommercePhp/Client/Commande">Pannier</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+                  <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/EcommercePhp/Client/index.php">Acceuil</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/EcommercePhp/Client/GestionCommande.php">Rechercher</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/EcommercePhp/Client/Commande.php">Pannier</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/UserComs.php">Commentaire</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                          <a class="nav-link" href="http://localhost/EcommercePhp/Client/ProfilUtilisateur.php">Profil</a>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
          
          <section class="py-5">
                 <!-- Page Content -->

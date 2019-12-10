@@ -18,23 +18,21 @@ if (isset($_GET['message'])){
 
 <html>
     <head>
-        
+          <link rel="icon" type="image/ico" href="https://img.generation-nt.com/logo-materiel-net_040003C501642167.png" />
+        <title>Connexion</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        
-        <link rel="icon" type="image/ico" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1200px-H%26M-Logo.svg.png" />
-        <title>H&M</title>
-        
+        <link href="css/Login.css" rel="stylesheet">
     </head>
     <body>
-        
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                <div class="container">
-                  <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
+         <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <div class="container">
+            <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Materiel.net</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
                   <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item">
@@ -64,13 +62,12 @@ if (isset($_GET['message'])){
 
                             <div class="my-4">
                                 <form action="http://localhost/EcommercePhp/Client/ListeClient.php" method="post">
-                                <div class="form-label-group">
+                                <div class="my-4">
                                     <label for="catégorie">Catégorie</label>
                                     <select name="Catégorie" id="catégorie" class="form-control">
                                         <option value="nothing"></option>
-                                        <option value="Haut">Haut</option>
-                                        <option value="Bas">Bas</option>
-                                        <option value="Chaussures">Chaussures</option>
+                                        <option value="Ordi">Ordi</option>
+                                        <option value="Clavier">Clavier</option>
                                     </select>
                                     
                                 </div>
@@ -79,9 +76,8 @@ if (isset($_GET['message'])){
                                     <label for="marque">Marque</label>
                                     <select name="Marque" id="marque" class="form-control">
                                         <option value="nothing"></option>
-                                        <option value="H&M">H&M</option>
-                                        <option value="H&MDesign">H&MDesign</option>
-                                        <option value="H&MEnfant">H&MEnfant</option>
+                                        <option value="Razer">Razer</option>
+                                        <option value="Logitech">Logitech</option>
                                     </select>
                                 </div>
                             

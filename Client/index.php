@@ -4,33 +4,23 @@ $_SESSION['type'] = $_SESSION['type'];
 $_SESSION['email']= $_SESSION['email'];
 $_SESSION['timeout_idle'] = time() + 2*24*60;
 ?>
-<html lang="fr">
-
+<html>
     <head>
-
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="">
-      <meta name="author" content="Aurélien PUJOL Antoine Picot">
-      <link rel="icon" type="image/ico" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1200px-H%26M-Logo.svg.png" />
-      <title>H&M</title>
-
-      <!-- Bootstrap core CSS -->
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-
-      <!-- Custom styles for this template -->
-
-
+          <link rel="icon" type="image/ico" href="https://img.generation-nt.com/logo-materiel-net_040003C501642167.png" />
+        <title>Connexion</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/Login.css" rel="stylesheet">
     </head>
-
     <body>
-
+         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                <div class="container">
-                  <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Hennes & Mauritz</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
+          <div class="container">
+            <a class="navbar-brand" href="http://localhost/EcommercePhp/Acceuil/index.html">Materiel.net</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
                   <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item">
@@ -55,21 +45,21 @@ $_SESSION['timeout_idle'] = time() + 2*24*60;
               </nav>
 
         <!-- Header - set the background image for the header in the line below -->
-        <header class="py-5 bg-image-full" style="background-image: url('http://www.dayblog.fr/wp-content/uploads/2016/09/Toplook.com-une-boutique-en-ligne-specialisee-dans-la-vente-en-gros-de-vetements-et-de-chaussures.jpg');">
-          <img class="img-fluid d-block mx-auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1200px-H%26M-Logo.svg.png" alt="">
-        </header>
+            <header class="py-5 bg-image-full" style="background-image: url('https://blog.materiel.net/wp-content/uploads/2017/09/illustr_qui_sommes_nous_2017.jpg');">
+              <img class="img-fluid d-block mx-auto" src="https://blog.materiel.net/wp-content/uploads/2017/09/illustr_qui_sommes_nous_2017.jpg" alt="">
+            </header>
 
-        <!-- Content section -->
-        <section class="py-5">
-          <div class="container">
-            <h1>Présentation</h1>
-            <p></p>
-            <p> Hennes et Mauritz, plus connu sous le nom de H&M, est une entreprise et chaîne de magasins suédoise de prêt-à-porter pour femme, enfant et homme, fondée en 1947 par Erling Persson.
-                  H&M est présent dans 69 pays et emploie environ 171 000 personnes et possède plus de 4 700 magasins.
-                  L'enseigne propose notamment des collections temporaires créées en collaboration avec des stylistes (Karl Lagerfeld, Viktor & Rolf, Roberto Cavalli, Versace, Balmain, Kenzo) ou des stars (Madonna, Nicki Minaj, Kylie Minogue, Katy Perry, Lana Del Rey, David Beckham, Vanessa Paradis, Beyoncé, Lady Gaga, Rihanna, Caitlyn Jenner, The Weeknd, Ariana Grande).
-                  Aux côtés de Calvin Klein (CK.com) et American Eagle (AE.com), H&M fait partie de la VB.com Internet Hall of Fame en possédant un nom de domaine à seulement deux lettres4. Le groupe a pu obtenir le domaine HM.com en 19985. Il vend aussi des meubles et des articles de décoration.  </p>
-          </div>
-        </section>
+            <!-- Content section -->
+            <section class="py-5">
+              <div class="container">
+                <h1>Présentation</h1>
+                <p></p>
+                <p> Le Groupe LDLC est un groupe français de commerce en ligne, créé en 1996 par Laurent de la Clergerie. Il est classé 5e en France par la FEVAD en 2016. Son enseigne majeure, LDLC.com, se positionne comme acteur majeur du commerce en ligne informatique et high-tech en France. Constitué de multiples marques dont cinq sites marchands, ce regroupement d’entreprises conjugue des activités dans le domaine de l’informatique, du high-tech ou encore de l’éducation.
+                      Outre les caractéristiques communes à la plupart des sites de vente en ligne (top des ventes par catégorie, appréciations en ligne des produits, etc.), le site a rapidement mis en place une recherche à facettes pour faciliter la recherche de produit comme les cartes mères, les RAM ou les moniteurs dont l'offre se chiffre parfois en centaines de modèles. Le site a de plus la particularité de proposer des ordinateurs livrés sans système d'exploitation pré-installé.
+                      La société est cotée en bourse sur Euronext Growth3 (code LDL). </p>
+
+              </div>
+            </section>
 
         <footer class="py-5 bg-dark">
           <div class="container">
